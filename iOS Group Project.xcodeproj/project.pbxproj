@@ -15,6 +15,7 @@
 		3B2C54572A093B8200635175 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B2C54552A093B8200635175 /* LaunchScreen.storyboard */; };
 		3BA3E91C2A09BAF70004D21B /* welcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA3E91B2A09BAF70004D21B /* welcomeViewController.swift */; };
 		3BA3E91E2A09C75A0004D21B /* postalCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA3E91D2A09C75A0004D21B /* postalCodeViewController.swift */; };
+		860AEB182A0A03E300A6B03C /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 860AEB172A0A03E300A6B03C /* Meal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		3B2C54582A093B8200635175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BA3E91B2A09BAF70004D21B /* welcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = welcomeViewController.swift; sourceTree = "<group>"; };
 		3BA3E91D2A09C75A0004D21B /* postalCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = postalCodeViewController.swift; sourceTree = "<group>"; };
+		860AEB172A0A03E300A6B03C /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				3B2C544C2A093B8100635175 /* SceneDelegate.swift */,
 				3B2C544E2A093B8100635175 /* ViewController.swift */,
 				3BA3E91B2A09BAF70004D21B /* welcomeViewController.swift */,
+				860AEB172A0A03E300A6B03C /* Meal.swift */,
 				3BA3E91D2A09C75A0004D21B /* postalCodeViewController.swift */,
 				3B2C54502A093B8100635175 /* Main.storyboard */,
 				3B2C54532A093B8200635175 /* Assets.xcassets */,
@@ -148,6 +151,7 @@
 				3BA3E91C2A09BAF70004D21B /* welcomeViewController.swift in Sources */,
 				3BA3E91E2A09C75A0004D21B /* postalCodeViewController.swift in Sources */,
 				3B2C544B2A093B8100635175 /* AppDelegate.swift in Sources */,
+				860AEB182A0A03E300A6B03C /* Meal.swift in Sources */,
 				3B2C544D2A093B8100635175 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
