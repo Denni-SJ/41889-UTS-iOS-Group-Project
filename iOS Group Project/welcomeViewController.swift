@@ -1,16 +1,19 @@
 //
-//  ViewController.swift
+//  welcomeViewController.swift
 //  iOS Group Project
 //
 //  Created by Jin O on 2023/05/09.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
+class welcomeViewController: UIViewController {
+    
     var remainingTime = 2
     var timer = Timer()
     var trigger = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,13 +26,12 @@ class ViewController: UIViewController {
         
         if remainingTime == 0 {
             timer.invalidate()
-            performSegue(withIdentifier: "goToWelcome", sender: self)
+            performSegue(withIdentifier: "goTopostalCode", sender: self)
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToWelcome" {
-            _ = segue.destination as! welcomeViewController
+        if segue.identifier == "goToPostalCode" {
+            _ = segue.destination as! postalCodeViewController
         }
     }
 }
-
