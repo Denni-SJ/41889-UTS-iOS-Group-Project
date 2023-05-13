@@ -2,29 +2,20 @@
 //  Meal.swift
 //  iOS Group Project
 //
-//  Created by Gavin josh Logronio on 9/5/2023.
+//  Created by Gavin josh Logronio on 13/5/2023.
 //
 
 import UIKit
 
-class Meal{
-    var Name:String = ""
-    var Calories:Int = 0
-    var Protein: Int = 0
-    var Time: Int = 0
-    var Halal: Bool = false
-    var Carbs: Int = 0
-    var Gluten: Bool = false
-    var Ingredients: [String] = []
-    var Image: [UIImage] = []
+class Meal {
     
-    func getName(name: String) -> String
-    {
-        return name
-    }
+    var calories: Int = 0
+    var protein: Int = 0
+    var time: Int = 0
+    var halal: Bool = false
+    var carbs: Int = 0
+    var ingredients: [String] = []
+    var gluten: Bool = false
     
-    func getCalories()
-    {
-        
-    }
+    
 }
