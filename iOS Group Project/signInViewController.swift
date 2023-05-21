@@ -18,9 +18,6 @@ class signInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        continueButton.layer.cornerRadius = 10
-        continueButton.layer.masksToBounds = true
         // Do any additional setup after loading the view.
         
         // Set Remember Me switch is off
@@ -66,7 +63,6 @@ class signInViewController: UIViewController {
             }
         } else {
             print("Incorrect email or password")
-            showErrorMessage()
         }
     }
     
@@ -101,13 +97,6 @@ class signInViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "password")
     }
     
-    private func showErrorMessage() {
-        let alertController = UIAlertController(title: "Error", message: "Incorrect email or password!", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK.", style: .default, handler: nil)
-        alertController.addAction(okAction)
-        present(alertController, animated: true, completion: nil)
-    }
-
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
 //
