@@ -31,15 +31,18 @@ class signUpViewController: UIViewController {
         }
         
         if email.isEmpty || password.isEmpty {
+            // Show an error alert if any field is empty
             let alertController = UIAlertController(title: "Error", message: "Please fill in all fields!", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true, completion: nil)
             return
         }
         
+        // Saver user information
         UserDefaults.standard.set(email, forKey: "email")
         UserDefaults.standard.set(password, forKey: "password")
         
+        // Show a success alert
         let alertController = UIAlertController(title: "Success", message: "Account created!", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK.", style: .default, handler: { (_) in
         }))
