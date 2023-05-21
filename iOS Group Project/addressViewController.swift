@@ -23,6 +23,8 @@ class addressViewController: UIViewController {
     
     var userEmail:String = ""
     let newAccount = Accounts()
+    var checkEmpty:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var email = UserDefaults.standard.string(forKey: userEmail)
@@ -31,38 +33,45 @@ class addressViewController: UIViewController {
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         if self.firstNameText.text == nil {
             errorText.isHidden = false
+            checkEmpty = true
         }
 
         if self.lastNameText.text == nil {
             errorText.isHidden = false
+            checkEmpty = true
         }
 
         if self.addressLine1Text.text == nil {
             errorText.isHidden = false
+            checkEmpty = true
         }
 
         if self.addressLine2Text.text == nil {
-
             errorText.isHidden = false
+            checkEmpty = true
         }
 
         if self.cityText.text == nil {
             errorText.isHidden = false
+            checkEmpty = true
         }
 
         if self.postalCodeText.text == nil {
             errorText.isHidden = false
+            checkEmpty = true
         }
 
         if self.phoneNumberText.text == nil {
-
             errorText.isHidden = false
+            checkEmpty = true
         }
 
         if self.deliveryInstructText.text == nil {
             errorText.isHidden = false
+            checkEmpty = true
         }
-        else {
+        
+        if !checkEmpty {
             newAccount.Fname = firstNameText.text!
             newAccount.Fname = firstNameText.text!
             newAccount.Lname = lastNameText.text!
