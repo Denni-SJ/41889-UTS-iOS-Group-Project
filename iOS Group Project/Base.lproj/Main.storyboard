@@ -695,15 +695,13 @@ Let us know your address:)</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jhw-pM-U1c">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jhw-pM-U1c">
                                 <rect key="frame" x="36" y="666" width="319" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJJ-C4-ktC">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJJ-C4-ktC">
                                 <rect key="frame" x="141" y="777" width="111" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Continue">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="22"/>
@@ -713,10 +711,30 @@ Let us know your address:)</string>
                                     <action selector="submitButtonPressed:" destination="BJy-AT-rdD" eventType="touchUpInside" id="fPU-hn-x7N"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Please fill in all the text fields" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBg-Ly-LE7">
+                                <rect key="frame" x="87" y="735" width="218" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KxH-77-tcR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UBg-Ly-LE7" firstAttribute="top" secondItem="jhw-pM-U1c" secondAttribute="bottom" constant="35" id="RcX-PM-9AF"/>
+                            <constraint firstItem="tJJ-C4-ktC" firstAttribute="top" secondItem="UBg-Ly-LE7" secondAttribute="bottom" constant="21" id="eeS-pb-y3u"/>
+                        </constraints>
                         <connections>
+                            <outlet property="addressLine1Text" destination="ueW-yx-JZK" id="jxF-Pm-hp9"/>
+                            <outlet property="addressLine2Text" destination="Idi-wK-uoV" id="3LE-lx-pfO"/>
+                            <outlet property="cityText" destination="sDi-PI-6zy" id="xea-5S-Dbo"/>
+                            <outlet property="deliveryInstructText" destination="jhw-pM-U1c" id="xdv-gf-l6J"/>
+                            <outlet property="errorText" destination="UBg-Ly-LE7" id="6Nd-QZ-3hC"/>
+                            <outlet property="firstNameText" destination="2Th-zJ-8OQ" id="Ek7-6P-jOZ"/>
+                            <outlet property="lastNameText" destination="vjr-kl-lgt" id="OQJ-dZ-h5E"/>
+                            <outlet property="phoneNumberText" destination="62J-TF-XF5" id="koT-NS-qYV"/>
+                            <outlet property="postalCOdeText" destination="Saf-VY-uwT" id="0Xn-du-2Pd"/>
+                            <outlet property="postalCodeText" destination="Saf-VY-uwT" id="Hgs-dL-Er8"/>
                             <outlet property="submitButton" destination="tJJ-C4-ktC" id="i3n-pO-bRi"/>
                         </connections>
                     </view>
@@ -730,6 +748,9 @@ Let us know your address:)</string>
         <image name="houseImage" width="393" height="444"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
