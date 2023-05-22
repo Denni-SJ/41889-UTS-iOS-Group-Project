@@ -19,6 +19,7 @@ class Accounts {
     var postal: Int = 0
     var phone: Int = 0
     var deliveryInst: String? = " "
+    
     var mealSelect: [Meal] = []
     
     
@@ -28,7 +29,7 @@ class Accounts {
         return email
     }
     
-    func addMeal()
+    func addMeal(mealNum: String)
     {
         
     }

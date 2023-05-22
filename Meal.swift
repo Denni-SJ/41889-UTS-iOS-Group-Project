@@ -9,6 +9,7 @@ import UIKit
 
 class Meal {
     
+    var mealNum: String = ""
     var calories: Int = 0
     var protein: Int = 0
     var time: Int = 0
@@ -16,6 +17,14 @@ class Meal {
     var carbs: Int = 0
     var ingredients: [String] = []
     var gluten: Bool = false
+    
+    func getCalories() -> Int{
+        return calories
+    }
+    
+    func getProtein() -> Int{
+        return calories
+    }
     
     
 }
