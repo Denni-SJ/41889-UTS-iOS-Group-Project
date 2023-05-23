@@ -23,6 +23,7 @@ class Accounts {
     var mealSelect: [Meal] = []
     
     
+    
     func getEmail() -> String
     {
         
