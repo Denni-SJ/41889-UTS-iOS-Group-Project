@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Accounts
 
 class signUpViewController: UIViewController {
 

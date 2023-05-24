@@ -7,21 +7,33 @@
 
 import UIKit
 
-class Accounts {
+class Account {
     
-    var email: String = " "
-    var password: String = " "
-    var Fname: String = " "
-    var Lname: String = " "
-    var address: String = " "
-    var city: String = " "
-    var address2: String? = " "
-    var postal: Int = 0
-    var phone: Int = 0
-    var deliveryInst: String? = " "
+    var email: String
+    var password: String
+    var fName: String?
+    var lName: String?
+    var address: String?
+    var city: String?
+    var address2: String?
+    var postal: Int?
+    var phone: Int?
+    var deliveryInst: String?
     
     var mealSelect: [Meal] = []
     
+    init (email: String, password: String, fName: String, lName: String, address: String, city: String, postal: Int, phone: Int){
+        self.email = email
+        self.password = password
+        self.fName = fName
+        self.lName = lName
+        self.address = address
+        self.city = city
+        self.postal = postal
+        self.phone = phone
+    }
+    
+
     
     
     func getEmail() -> String
@@ -30,8 +42,17 @@ class Accounts {
         return email
     }
     
-    func addMeal(mealNum: String)
-    {
-        
-    }
+
+
+
 }
+
+
+var Accounts: [Account] = []
+
+func addAccount(Email: String, Password: String, FName: String, LName: String, Address: String, City: String, Postal: Int, Phone: Int){
+    let newAccount = Account(email: Email, password: Password, fName: FName, lName: LName, address: Address, city: City, postal: Postal, phone: Phone)
+    Accounts.append(newAccount)
+}
+
+
