@@ -8,9 +8,10 @@
 import UIKit
 
 class Account {
+    static var shared = Account()
     
-    var email: String
-    var password: String
+    var email: String?
+    var password: String?
     var fName: String?
     var lName: String?
     var address: String?
@@ -22,37 +23,26 @@ class Account {
     
     var mealSelect: [Meal] = []
     
-    init (email: String, password: String, fName: String, lName: String, address: String, city: String, postal: Int, phone: Int){
-        self.email = email
-        self.password = password
-        self.fName = fName
-        self.lName = lName
-        self.address = address
-        self.city = city
-        self.postal = postal
-        self.phone = phone
-    }
-    
-
-    
-    
-    func getEmail() -> String
-    {
-        
-        return email
-    }
-    
-
-
-
+    private init (){}
+//    init (email: String, password: String, fName: String, lName: String, address: String, city: String, postal: Int, phone: Int){
+//        self.email = email
+//        self.password = password
+//        self.fName = fName
+//        self.lName = lName
+//        self.address = address
+//        self.city = city
+//        self.postal = postal
+//        self.phone = phone
+//    }
 }
 
 
-var Accounts: [Account] = []
-
-func addAccount(Email: String, Password: String, FName: String, LName: String, Address: String, City: String, Postal: Int, Phone: Int){
-    let newAccount = Account(email: Email, password: Password, fName: FName, lName: LName, address: Address, city: City, postal: Postal, phone: Phone)
-    Accounts.append(newAccount)
-}
+//var Accounts: [Account] = []
+//
+//func addAccount(Email: String, Password: String, FName: String, LName: String, Address: String, City: String, Postal: Int, Phone: Int){
+//    let newAccount = Account()
+//    Accounts.append(newAccount)
+//    
+//}
 
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Accounts
 import UIKit
 
 class addressViewController: UIViewController {
@@ -22,7 +23,7 @@ class addressViewController: UIViewController {
     @IBOutlet weak var errorText: UILabel!
     
     var userEmail:String = ""
-    let newAccount = Accounts()
+//    let newAccount = Account()
     var checkEmpty:Bool = false
     
     override func viewDidLoad() {
@@ -31,11 +32,13 @@ class addressViewController: UIViewController {
         errorText.isHidden = true
     }
     @IBAction func submitButtonPressed(_ sender: UIButton) {
+        
         if self.firstNameText.text == nil {
             errorText.isHidden = false
             checkEmpty = true
         }
-
+        
+       
         if self.lastNameText.text == nil {
             errorText.isHidden = false
             checkEmpty = true
@@ -72,15 +75,20 @@ class addressViewController: UIViewController {
         }
         
         if !checkEmpty {
-            newAccount.Fname = firstNameText.text!
-            newAccount.Fname = firstNameText.text!
-            newAccount.Lname = lastNameText.text!
-            newAccount.address = addressLine1Text.text!
-            newAccount.address2 = addressLine2Text.text!
-            newAccount.city = cityText.text!
-            newAccount.phone = Int(phoneNumberText.text!)!
-            newAccount.deliveryInst = deliveryInstructText.text!
-            UserDefaults.standard.set(newAccount, forKey: userEmail)
+            
+            var phoneNum: String = phoneNumberText.text!
+            var postal: String = postalCodeText.text!
+            Account.shared.fName = firstNameText.text
+            Account.shared.lName = lastNameText.text
+            Account.shared.address = addressLine1Text.text
+            Account.shared.address2 = addressLine2Text.text
+            Account.shared.city = cityText.text
+            Account.shared.phone = Int(phoneNum)
+            Account.shared.postal = Int(postal)
+            Account.shared.deliveryInst = deliveryInstructText.text
+            
+            
+            
         }
         
     }

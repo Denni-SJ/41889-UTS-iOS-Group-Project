@@ -38,6 +38,8 @@ class signUpViewController: UIViewController {
             return
         }
         
+        Account.shared.email = email
+        Account.shared.password = password
         UserDefaults.standard.set(email, forKey: "email")
         UserDefaults.standard.set(password, forKey: "password")
         
