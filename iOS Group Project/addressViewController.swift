@@ -8,6 +8,7 @@
 import Foundation
 import Accounts
 import UIKit
+import UserNotifications
 
 class addressViewController: UIViewController {
     
@@ -87,9 +88,24 @@ class addressViewController: UIViewController {
             Account.shared.postal = Int(postal)
             Account.shared.deliveryInst = deliveryInstructText.text
             
-            
-            
+            sendNotification()
         }
         
+        func sendNotification() {
+            let center = UNUserNotificationCenter.current()
+            let content = UNMutableNotificationContent()
+            content.title = "SmallRich"
+            content.body = "Your meal has been delivered to the following address \(String(describing: Account.shared.address))"
+            content.sound = .default
+            
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            let request = UNNotificationRequest(identifier: "SmallRich", content: content, trigger: trigger)
+            
+            center.add(request) {(error) in
+                if error != nil {
+                    print("Error = \(error?.localizedDescription ?? "error local notification")")
+                }
+            }
+        }
     }
 }
