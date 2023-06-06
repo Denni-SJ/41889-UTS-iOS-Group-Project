@@ -88,10 +88,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="postalCodeTextField:" destination="zeZ-2X-oKs" eventType="editingDidEnd" id="ofK-UL-Tvu"/>
-                                    <action selector="textFieldChange:" destination="8Lj-wW-HaP" eventType="editingDidEnd" id="iIf-MI-hkV"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJs-8a-rdP">
                                 <rect key="frame" x="149" y="783" width="78" height="35"/>
@@ -119,20 +115,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="yQq-aX-jOa"/>
                     <connections>
-                        <outlet property="postalCodeTextField" destination="kML-7p-hjc" id="ceL-lU-knQ"/>
+                        <outlet property="postalCodeTextField" destination="kML-7p-hjc" id="q3f-1Y-bdT"/>
                         <outlet property="submitButton" destination="OJs-8a-rdP" id="OO4-uY-IhJ"/>
                         <outlet property="validLabel" destination="yaU-Ub-44b" id="s0t-Rf-8NK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iiY-uU-pFa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="zeZ-2X-oKs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2944.2748091603053" y="3.5211267605633805"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="wB8-7n-zz9">
             <objects>
-                <viewController id="RCE-7X-jq2" customClass="signUpViewController" customModule="iOS_Group_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signUpViewController" id="RCE-7X-jq2" customClass="signUpViewController" customModule="iOS_Group_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zbF-iq-qKV">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
