@@ -25,7 +25,7 @@ class postalCodeViewController: UIViewController {
 
     func isValid(text: String) -> Bool {
         let range = NSRange(location: 0, length: postalCodeTextField.text!.count)
-        let regex = try! NSRegularExpression(pattern: "^[0-9]{4}")
+        let regex = try! NSRegularExpression(pattern: "^[0-9]{4}$")
         guard !text.isEmpty else {
             validLabel.isHidden = false
             return false
