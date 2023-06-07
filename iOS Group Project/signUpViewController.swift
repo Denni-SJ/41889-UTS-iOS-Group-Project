@@ -24,7 +24,18 @@ class signUpViewController: UIViewController {
             // Do any additional setup after loading the view.
     }
     
+    func isValidEmail(strToValidate: String) -> Bool {
+        let emailValidationRegex = "^[\\p{L}0-9!#$%&'*+\\/=?^_`{|}~-][\\p{L}0-9.!#$%&'*+\\/=?^_`{|}~-]{0,63}@[\\p{L}0-9-]+(?:\\.[\\p{L}0-9-]{2,7})*$"
+        let emailValidationPredicate = NSPredicate(format: "SELF MATCHES %@", emailValidationRegex)
+        return emailValidationPredicate.evaluate(with: strToValidate)
+    }
     
+    func isValidPassword(strToValidate: String) -> Bool {
+        let passwordValidationRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$"
+        let passwordValidationPredicate = NSPredicate(format: "SELF MATCHES %@", passwordValidationRegex)
+        return passwordValidationPredicate.evaluate(with: strToValidate)
+    }
+
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else {
@@ -33,6 +44,19 @@ class signUpViewController: UIViewController {
         
         if email.isEmpty || password.isEmpty {
             let alertController = UIAlertController(title: "Error", message: "Please fill in all fields!", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+        if !isValidEmail(strToValidate: emailTextField.text!) {
+            let alertController = UIAlertController(title: "Error", message: "Please fill in a correct email!", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        if !isValidPassword(strToValidate: passwordTextField.text!) {
+            let alertController = UIAlertController(title: "Error", message: "Please fill in a password with at least 8 characters, one upper case and one lower case", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true, completion: nil)
             return
