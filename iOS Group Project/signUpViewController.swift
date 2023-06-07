@@ -31,7 +31,7 @@ class signUpViewController: UIViewController {
     }
     
     func isValidPassword(strToValidate: String) -> Bool {
-        let passwordValidationRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$"
+        let passwordValidationRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*])[a-zA-Z\\d!@#$%^&*]{8,}$"
         let passwordValidationPredicate = NSPredicate(format: "SELF MATCHES %@", passwordValidationRegex)
         return passwordValidationPredicate.evaluate(with: strToValidate)
     }
@@ -56,7 +56,7 @@ class signUpViewController: UIViewController {
         }
         
         if !isValidPassword(strToValidate: passwordTextField.text!) {
-            let alertController = UIAlertController(title: "Error", message: "Please fill in a password with at least 8 characters, one upper case and one lower case", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Error", message: "Please fill in at least 8 characters, one upper case, one lower case, one digit and one special character", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true, completion: nil)
             return
