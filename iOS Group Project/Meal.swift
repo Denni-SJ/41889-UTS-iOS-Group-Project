@@ -2,7 +2,7 @@
 //  Meal.swift
 //  iOS Group Project
 //
-//  Created by Gavin josh Logronio on 13/5/2023.
+//  Created by louistsou on 7/6/2023.
 //
 
 import UIKit
@@ -81,6 +81,3 @@ var Meals: [Meal] = [
     Meal(name:"Microwave jambalaya", mealNum: "F03", calories: 538, protein: 18,
          halal: true, carbs: 87, glutenF: false, vege: false, nutF: true, dairyF: false, fishF: true)
 ]
-
-
-
