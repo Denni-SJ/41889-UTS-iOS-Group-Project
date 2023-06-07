@@ -13,11 +13,9 @@ class postalCodeViewController: UIViewController {
 
 
     @IBOutlet weak var postalCodeTextField: UITextField!
-    @IBOutlet weak var validLabel: UILabel!
     @IBOutlet weak var submitButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        validLabel.isHidden = true
         postalCodeTextField.layer.cornerRadius = 10
         postalCodeTextField.layer.masksToBounds = true
         // Do any additional setup after loading the view.
@@ -27,14 +25,12 @@ class postalCodeViewController: UIViewController {
         let range = NSRange(location: 0, length: postalCodeTextField.text!.count)
         let regex = try! NSRegularExpression(pattern: "^[0-9]{4}$")
         guard !text.isEmpty else {
-            validLabel.isHidden = false
             return false
         }
         if (regex.firstMatch(in: text, range: range) != nil) {
             return true
         }
         else {
-            validLabel.isHidden = false
             return false
         }
     }
@@ -46,7 +42,9 @@ class postalCodeViewController: UIViewController {
 
         }
         else {
-            validLabel.isHidden = false
+            let alertController = UIAlertController(title: "Error", message: "Please fill in a 4 digit post code", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertController, animated: true, completion: nil)
             postalCodeTextField.text = ""
         }
     }
