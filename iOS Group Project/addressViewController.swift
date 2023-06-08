@@ -21,7 +21,6 @@ class addressViewController: UIViewController {
     @IBOutlet weak var phoneNumberText: UITextField!
     @IBOutlet weak var deliveryInstructText: UITextField!
     @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var errorText: UILabel!
     
     var userEmail:String = ""
 //    let newAccount = Account()
@@ -30,48 +29,39 @@ class addressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         var email = UserDefaults.standard.string(forKey: userEmail)
-        errorText.isHidden = true
     }
     @IBAction func submitButtonPressed(_ sender: UIButton) {
         
         if self.firstNameText.text == nil {
-            errorText.isHidden = false
             checkEmpty = true
         }
         
        
         if self.lastNameText.text == nil {
-            errorText.isHidden = false
             checkEmpty = true
         }
 
         if self.addressLine1Text.text == nil {
-            errorText.isHidden = false
             checkEmpty = true
         }
 
         if self.addressLine2Text.text == nil {
-            errorText.isHidden = false
             checkEmpty = true
         }
 
         if self.cityText.text == nil {
-            errorText.isHidden = false
             checkEmpty = true
         }
 
         if self.postalCodeText.text == nil {
-            errorText.isHidden = false
             checkEmpty = true
         }
 
         if self.phoneNumberText.text == nil {
-            errorText.isHidden = false
             checkEmpty = true
         }
 
         if self.deliveryInstructText.text == nil {
-            errorText.isHidden = false
             checkEmpty = true
         }
         
@@ -87,8 +77,11 @@ class addressViewController: UIViewController {
             Account.shared.phone = Int(phoneNum)
             Account.shared.postal = Int(postal)
             Account.shared.deliveryInst = deliveryInstructText.text
-            
             sendNotification()
+        }else {
+            let alertController = UIAlertController(title: "Error", message: "Please fill in all the required text fields", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertController, animated: true, completion: nil)
         }
         
         func sendNotification() {
