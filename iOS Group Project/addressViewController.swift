@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import UserNotifications
+import CoreData
 
 class addressViewController: UIViewController {
     
@@ -22,8 +23,11 @@ class addressViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     
     var userEmail: String = ""
-    // let newAccount = Account()
+    
     var checkEmpty: Bool = false
+    
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var account: Account!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,29 +39,46 @@ class addressViewController: UIViewController {
         if self.firstNameText.text == "" {
             checkEmpty = true
         }
+        else {
+            account.fName = firstNameText.text
+        }
         
         if self.lastNameText.text == "" {
             checkEmpty = true
         }
+        else {
+            account.lname = lastNameText.text
+        }
         
         if self.addressLine1Text.text == "" {
             checkEmpty = true
+        } else {
+            account.address = addressLine1Text.text
         }
         
         if self.addressLine2Text.text == "" {
             checkEmpty = true
+        } else {
+            account.address2 = addressLine2Text.text
         }
         
         if self.cityText.text == "" {
             checkEmpty = true
+        } else {
+            account.city = cityText.text
         }
         
         if self.postalCodeText.text == "" {
             checkEmpty = true
+        } else {
+//            var postalCode: Int? = Int(postalCodeText.text)
+//            account.postal = postalCode
         }
         
         if self.phoneNumberText.text == "" {
             checkEmpty = true
+        } else {
+            
         }
         
         if (checkEmpty == false) {
