@@ -14,7 +14,10 @@ class adViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            // Do any additional setup after loading the view.
         
+        appetiteButton.layer.cornerRadius = 10
+        appetiteButton.layer.masksToBounds = true
+        appetiteButton.layer.borderWidth = 2.0
+        appetiteButton.layer.borderColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0).cgColor
     }
 }
