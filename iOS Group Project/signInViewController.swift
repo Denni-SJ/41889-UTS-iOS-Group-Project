@@ -45,7 +45,8 @@ class signInViewController: UIViewController {
         
         // Check username and password
         if email == savedEmail && password == savedPassword {
-            print("Sign in successful")
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "adViewController") as! adViewController
+            self.navigationController?.pushViewController(vc, animated: true)
             
             // Check remember me switch is on
             if rememberMeSwitch.isOn {
@@ -55,7 +56,9 @@ class signInViewController: UIViewController {
                 clearCredentials()
             }
         } else {
-            print("Incorrect email or password")
+            let alertController = UIAlertController(title: "Error", message: "Incorrect email or password", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -89,18 +92,4 @@ class signInViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "email")
         UserDefaults.standard.removeObject(forKey: "password")
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        // Load saved username and password
-//        if let savedEmail = UserDefaults.standard.string(forKey: "email"),
-//           let savedPassword = UserDefaults.standard.string(forKey: "password") {
-//            emailTextField.text = savedEmail
-//            passwordTextField.text = savedPassword
-//            rememberMeSwitch.isOn = true
-//        } else {
-//            rememberMeSwitch.isOn = false
-//        }
-//    }
 }
