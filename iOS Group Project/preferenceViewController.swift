@@ -24,7 +24,7 @@ class preferenceViewController: UIViewController {
     var account: Account!
     var context: NSManagedObjectContext?
     var meals: [Meal] = []
-    var mealSelected: [Meal] = []
+    
 
 
 

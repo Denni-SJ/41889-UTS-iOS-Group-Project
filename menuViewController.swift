@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class menuViewController: UIViewController {
 
@@ -16,6 +17,10 @@ class menuViewController: UIViewController {
     @IBOutlet weak var menuStack1: UIStackView!
     @IBOutlet weak var menuStack2: UIStackView!
     @IBOutlet weak var menuStack3: UIStackView!
+    var meals: [Meal] = []
+    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pagesStackView.layer.borderWidth = 5
@@ -35,9 +40,22 @@ class menuViewController: UIViewController {
         menuStack2.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
         menuStack3.layer.borderWidth = 1
         menuStack3.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
+        
+        
+        let fetchRequest: NSFetchRequest<Meal> = Meal.fetchRequest()
+        
+        do {
+                   meals = try context.fetch(fetchRequest)
+               } catch let error as NSError {
+                   print("Failed to fetch meals from Core Data. Error: \(error), \(error.userInfo)")
+               }
+        
+        for meal in meals {
+                    print("Meal name: \(meal.name ?? "")")
+                    print("Meal carbs: \(meal.carbs)")
+                    // Access other attributes of the meal
+                }
     }
-
-
 
 
 }
