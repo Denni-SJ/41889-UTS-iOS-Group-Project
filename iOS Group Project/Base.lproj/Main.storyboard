@@ -195,7 +195,7 @@
         <!--Ad View Controller-->
         <scene sceneID="RVB-uc-9nJ">
             <objects>
-                <viewController id="VpJ-0Q-HBb" customClass="adViewController" customModule="iOS_Group_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="adViewController" id="VpJ-0Q-HBb" customClass="adViewController" customModule="iOS_Group_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Oj-sQ-DDy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -444,7 +444,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="continueButtonTapped:" destination="6Vl-c4-zTY" eventType="touchUpInside" id="XA9-C8-gBm"/>
-                                    <segue destination="VpJ-0Q-HBb" kind="show" id="CJn-2a-Vwx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -466,7 +465,7 @@
         <!--Menu View Controller-->
         <scene sceneID="YTi-yl-pEf">
             <objects>
-                <viewController title="Menu View Controller" id="eod-50-LOX" customClass="menuViewController" customModule="iOS_Group_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menuViewController" title="Menu View Controller" id="eod-50-LOX" customClass="menuViewController" customModule="iOS_Group_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Abj-dn-gnN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -590,6 +589,9 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="menuStack1" destination="2sK-cb-QUv" id="ijf-29-Iqc"/>
+                        <outlet property="menuStack2" destination="azH-8i-csb" id="NHy-3V-Bgr"/>
+                        <outlet property="menuStack3" destination="mAj-RK-Zew" id="fvI-aK-OTo"/>
                         <outlet property="pagesStackView" destination="DXF-dO-KjT" id="am2-Mb-F5w"/>
                         <outlet property="reselectButton" destination="WG5-O6-cOc" id="2Vu-55-wXT"/>
                         <outlet property="thisWeekButton" destination="Ezi-Dx-Axg" id="TqP-j7-xvx"/>
@@ -597,7 +599,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ID2-QX-SGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10017.557251908396" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="9714" y="4"/>
         </scene>
         <!--Portion View Controller-->
         <scene sceneID="88c-pe-IMY">
@@ -892,9 +894,6 @@ Let us know your address:)</string>
             <point key="canvasLocation" x="8752" y="4"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="k43-QD-tmP"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="Advertisement" width="759" height="647"/>
