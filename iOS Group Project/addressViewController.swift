@@ -28,48 +28,40 @@ class addressViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var email = UserDefaults.standard.string(forKey: userEmail)
-        
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
     }
     
-    
-    @IBAction func continueButtonTapped(_ sender: Any) {
-        if self.firstNameText.text == nil {
+    @IBAction func continueButtonTapped(_ sender: UIButton) {
+        if self.firstNameText.text == "" {
             checkEmpty = true
         }
         
-        if self.lastNameText.text == nil {
+        if self.lastNameText.text == "" {
             checkEmpty = true
         }
         
-        if self.addressLine1Text.text == nil {
+        if self.addressLine1Text.text == "" {
             checkEmpty = true
         }
         
-        if self.addressLine2Text.text == nil {
+        if self.addressLine2Text.text == "" {
             checkEmpty = true
         }
         
-        if self.cityText.text == nil {
+        if self.cityText.text == "" {
             checkEmpty = true
         }
         
-        if self.postalCodeText.text == nil {
+        if self.postalCodeText.text == "" {
             checkEmpty = true
         }
         
-        if self.phoneNumberText.text == nil {
-            checkEmpty = true
-        }
-
-        if self.deliveryInstructionsText.text == nil {
+        if self.phoneNumberText.text == "" {
             checkEmpty = true
         }
         
-        if !checkEmpty {
+        if (checkEmpty == false) {
             var phoneNum: String = phoneNumberText.text!
             var postal: String = postalCodeText.text!
             Account.shared.fName = firstNameText.text
@@ -80,28 +72,18 @@ class addressViewController: UIViewController {
             Account.shared.phone = Int(phoneNum)
             Account.shared.postal = Int(postal)
             Account.shared.deliveryInst = deliveryInstructionsText.text
-            sendNotification()
-        } else {
+            
+            let alertController = UIAlertController(title: "Meal Sent", message: "Your meal plan has been confirmed and sent to the following address: \(addressLine1Text.text!)", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertController, animated: true, completion: nil)
+
+        } else if(checkEmpty == true) {
             let alertController = UIAlertController(title: "Error", message: "Please fill in all the required text fields", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true, completion: nil)
         }
         
-        func sendNotification() {
-            let center = UNUserNotificationCenter.current()
-            let content = UNMutableNotificationContent()
-            content.title = "SmallRich"
-            content.body = "Your meal has been delivered to the following address \(String(describing: Account.shared.address))"
-            content.sound = .default
-            
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-            let request = UNNotificationRequest(identifier: "SmallRich", content: content, trigger: trigger)
-            
-            center.add(request) {(error) in
-                if error != nil {
-                    print("Error = \(error?.localizedDescription ?? "error local notification")")
-                }
-            }
-        }
+        
+        
     }
 }
