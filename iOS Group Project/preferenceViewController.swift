@@ -25,7 +25,6 @@ class preferenceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonSetUp()
-
         meatLover.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         lowCarb.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         lowCalories.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
@@ -34,7 +33,7 @@ class preferenceViewController: UIViewController {
         asian.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         halal.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         upForEverything.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
-        // Do any additional setup after loading the view.
+        
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
     }
@@ -47,21 +46,27 @@ class preferenceViewController: UIViewController {
     func borderOfButtons(buttons: [UIButton]) {
         for button in buttons {
             button.layer.borderWidth = 2.0
-            button.layer.borderColor = UIColor.green.cgColor
+            button.layer.borderColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0).cgColor
+            button.layer.cornerRadius = 10
+            button.layer.masksToBounds = true
         }
     }
+    
     @objc func buttonPressed(_ sender: UIButton) {
-        if(!selectFlag) {
-            sender.backgroundColor = UIColor(red: 0 / 255, green: 130 / 255, blue: 29 / 255, alpha: 0.8)
+        if !selectFlag {
+            sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5)
+            sender.setTitleColor(UIColor.white, for: .normal)
             selectFlag = true
         }
-        else if(sender.backgroundColor == UIColor(red: 0 / 255, green: 130 / 255, blue: 29 / 255, alpha: 0.8)) {
+        else if sender.backgroundColor == UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5) {
             sender.backgroundColor = UIColor.white
+            sender.setTitleColor(UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0), for: .normal)
             selectFlag = false
         }
     }
+    
     @IBAction func continueButtonPressed(_ sender: UIButton) {
-        if(selectFlag){
+        if selectFlag {
                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "portionViewController") as! portionViewController
                    self.navigationController?.pushViewController(vc, animated: true)
                }
@@ -69,6 +74,6 @@ class preferenceViewController: UIViewController {
                    let alertController = UIAlertController(title: "Error", message: "Please select one preference", preferredStyle: .alert)
                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                    present(alertController, animated: true, completion: nil)
-               }
+            }
     }
 }

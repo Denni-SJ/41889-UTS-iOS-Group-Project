@@ -33,23 +33,25 @@ class portionViewController: UIViewController {
     func borderOfButtons(buttons: [UIButton]) {
         for button in buttons {
             button.layer.borderWidth = 2.0
-            button.layer.borderColor = UIColor.green.cgColor
+            button.layer.borderColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0).cgColor
+            button.layer.cornerRadius = 10
+            button.layer.masksToBounds = true
         }
     }
 
     @objc func buttonPressed(_ sender: UIButton) {
-        if(!selectFlag) {
-            sender.backgroundColor = UIColor(red: 0 / 255, green: 130 / 255, blue: 29 / 255, alpha: 0.8)
+        if !selectFlag {
+            sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5)
             selectFlag = true
         }
-        else if(sender.backgroundColor == UIColor(red: 0 / 255, green: 130 / 255, blue: 29 / 255, alpha: 0.8)) {
+        else if sender.backgroundColor == UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5) {
             sender.backgroundColor = UIColor.white
             selectFlag = false
         }
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
-        if(selectFlag) {
+        if selectFlag {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "recipeViewController") as! recipeViewController
             self.navigationController?.pushViewController(vc, animated: true)
         }
