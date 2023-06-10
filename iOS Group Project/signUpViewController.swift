@@ -65,8 +65,15 @@ class signUpViewController: UIViewController {
             return
         }
         
-        performSegue(withIdentifier: "goToAd", sender: self)
-                
+        var account = Account(context: context)
+        account.email = emailTextField.text
+        account.password = passwordTextField.text
+        
+       
+        try! context.save()
+            performSegue(withIdentifier: "goToAd", sender: account)
+        
+        
         
         UserDefaults.standard.set(email, forKey: "email")
         UserDefaults.standard.set(password, forKey: "password")
@@ -79,7 +86,12 @@ class signUpViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToAd" {
-            _ = segue.destination as! adViewController
+            if let adVC = segue.destination as? adViewController, let account = sender as? Account {
+                _ = segue.destination as! adViewController
+                
+                adVC.account = account
+                adVC.context = context
+            }
         }
     }
 }

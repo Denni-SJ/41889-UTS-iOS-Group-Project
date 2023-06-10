@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class recipeViewController: UIViewController {
     @IBOutlet weak var threeButton: UIButton!
@@ -14,7 +15,10 @@ class recipeViewController: UIViewController {
     @IBOutlet weak var fiveButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
     var selectFlag: Bool = false
+    var account: Account!
+    var context: NSManagedObjectContext?
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonSetUp()
@@ -30,7 +34,7 @@ class recipeViewController: UIViewController {
         let buttonsArray = [threeButton, fourButton, fiveButton].compactMap { $0 }
         borderOfButtons(buttons: buttonsArray)
     }
-
+    
     func borderOfButtons(buttons: [UIButton]) {
         for button in buttons {
             button.layer.borderWidth = 2.0
@@ -39,7 +43,7 @@ class recipeViewController: UIViewController {
             button.layer.masksToBounds = true
         }
     }
-
+    
     @objc func buttonPressed(_ sender: UIButton) {
         if !selectFlag {
             sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5)
@@ -50,7 +54,7 @@ class recipeViewController: UIViewController {
             selectFlag = false
         }
     }
-
+    
     @IBAction func continueButtonPressed(_ sender: UIButton) {
         if selectFlag {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "addressViewController") as! addressViewController
@@ -62,5 +66,14 @@ class recipeViewController: UIViewController {
             present(alertController, animated: true, completion: nil)
         }
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addressViewController" {
+            if let addVc = segue.destination as? addressViewController{
+                addVc.account = account
+                addVc.context = context
+            }
+        }
+        
+    }
 }
