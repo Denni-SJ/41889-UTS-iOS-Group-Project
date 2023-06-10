@@ -21,6 +21,9 @@ class recipeViewController: UIViewController {
         threeButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         fourButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         fiveButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+        
+        continueButton.layer.cornerRadius = 10
+        continueButton.layer.masksToBounds = true
     }
     
     func buttonSetUp() {

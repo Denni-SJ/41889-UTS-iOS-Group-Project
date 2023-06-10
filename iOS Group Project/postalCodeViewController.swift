@@ -14,11 +14,14 @@ class postalCodeViewController: UIViewController {
 
     @IBOutlet weak var postalCodeTextField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         postalCodeTextField.layer.cornerRadius = 10
         postalCodeTextField.layer.masksToBounds = true
-        // Do any additional setup after loading the view.
+        
+        submitButton.layer.cornerRadius = 10
+        submitButton.layer.masksToBounds = true
     }
 
     func isValid(text: String) -> Bool {
@@ -35,7 +38,7 @@ class postalCodeViewController: UIViewController {
         }
     }
 
-    @IBAction func submit(_ sender: UIButton) {
+    @IBAction func submitButtonTapped(_ sender: UIButton) {
         if(isValid(text: postalCodeTextField.text!)) {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "signUpViewController") as! signUpViewController
             self.navigationController?.pushViewController(vc, animated: true)

@@ -35,6 +35,8 @@ class preferenceViewController: UIViewController {
         halal.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         upForEverything.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         // Do any additional setup after loading the view.
+        continueButton.layer.cornerRadius = 10
+        continueButton.layer.masksToBounds = true
     }
 
     func buttonSetUp() {

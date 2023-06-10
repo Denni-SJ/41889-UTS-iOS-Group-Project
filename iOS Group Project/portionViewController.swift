@@ -20,6 +20,9 @@ class portionViewController: UIViewController {
         buttonSetUp()
         oneButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         twoButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+        
+        continueButton.layer.cornerRadius = 10
+        continueButton.layer.masksToBounds = true
     }
     
     func buttonSetUp() {
