@@ -10,7 +10,6 @@ import UIKit
 
 class preferenceViewController: UIViewController {
 
-
     @IBOutlet weak var meatLover: UIButton!
     @IBOutlet weak var lowCarb: UIButton!
     @IBOutlet weak var lowCalories: UIButton!
