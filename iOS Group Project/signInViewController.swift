@@ -18,6 +18,7 @@ class signInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
         
         // Set Remember Me switch is off
         rememberMeSwitch.isOn = false
@@ -29,6 +30,11 @@ class signInViewController: UIViewController {
         // Retrieve saved information if Remember Me is on
         if rememberMeSwitch.isOn {
             loadSavedCredentials()
+//            if let savedEmail = UserDefaults.standard.string(forKey: "email"),
+//                let savedPassword = UserDefaults.standard.string(forKey: "password") {
+//                emailTextField.text = savedEmail
+//                passwordTextField.text = savedPassword
+//            }
         }
     }
     
@@ -47,9 +53,13 @@ class signInViewController: UIViewController {
             // Check remember me switch is on
             if rememberMeSwitch.isOn {
                 saveCredentials()
+//                UserDefaults.standard.set(email, forKey: "email")
+//                UserDefaults.standard.set(password, forKey: "password")
             } else {
                 // Clear saved username and password
                 clearCredentials()
+//                UserDefaults.standard.removeObject(forKey: "email")
+//                UserDefaults.standard.removeObject(forKey: "password")
             }
         } else {
             print("Incorrect email or password")
