@@ -26,7 +26,8 @@ class addressViewController: UIViewController {
     
     var checkEmpty: Bool = false
     
-    var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var context: NSManagedObjectContext?
+
     var account: Account!
     
     override func viewDidLoad() {
@@ -68,17 +69,18 @@ class addressViewController: UIViewController {
             account.city = cityText.text
         }
         
-        if self.postalCodeText.text == "" {
-            checkEmpty = true
+        if let postalCode = postalCodeText.text, let postCode = Int64(postalCode) {
+            account.postal = postCode
         } else {
-//            var postalCode: Int? = Int(postalCodeText.text)
-//            account.postal = postalCode
+            checkEmpty = true
+            
         }
         
         if self.phoneNumberText.text == "" {
             checkEmpty = true
         } else {
-            
+         
+            account.phone = phoneNumberText.text
         }
         
         if (checkEmpty == false) {
@@ -89,7 +91,7 @@ class addressViewController: UIViewController {
             let alertController = UIAlertController(title: "Meal Sent", message: "Your meal plan has been confirmed and sent to the following address: \(addressLine1Text.text!)", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true, completion: nil)
-            
+            try! context?.save()
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "menuViewController") as! menuViewController
             self.navigationController?.pushViewController(vc, animated: true)
 

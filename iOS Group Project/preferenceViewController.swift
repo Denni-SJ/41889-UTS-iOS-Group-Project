@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class preferenceViewController: UIViewController {
 
@@ -21,6 +22,10 @@ class preferenceViewController: UIViewController {
     @IBOutlet weak var upForEverything: UIButton!
     @IBOutlet weak var continueButton: UIButton!
     var selectFlag = false
+    var account: Account!
+    var context: NSManagedObjectContext?
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,5 +80,14 @@ class preferenceViewController: UIViewController {
                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                    present(alertController, animated: true, completion: nil)
             }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "portionViewController" {
+            if let porpVc = segue.destination as? portionViewController {
+                porpVc.account = account
+                porpVc.context = context
+            }
+        }
     }
 }

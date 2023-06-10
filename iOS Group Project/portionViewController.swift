@@ -7,14 +7,19 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class portionViewController: UIViewController {
-
+    
     @IBOutlet weak var oneButton: UIButton!
     @IBOutlet weak var twoButton: UIButton!
     @IBOutlet weak var continueButton: UIButton!
     var selectFlag = false
+    var account: Account!
+    var context: NSManagedObjectContext?
 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonSetUp()
@@ -29,7 +34,7 @@ class portionViewController: UIViewController {
         let buttonsArray = [oneButton, twoButton].compactMap { $0 }
         borderOfButtons(buttons: buttonsArray)
     }
-
+    
     func borderOfButtons(buttons: [UIButton]) {
         for button in buttons {
             button.layer.borderWidth = 2.0
@@ -38,7 +43,7 @@ class portionViewController: UIViewController {
             button.layer.masksToBounds = true
         }
     }
-
+    
     @objc func buttonPressed(_ sender: UIButton) {
         if !selectFlag {
             sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5)
@@ -59,6 +64,15 @@ class portionViewController: UIViewController {
             let alertController = UIAlertController(title: "Error", message: "Please select one preference", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "recipeViewController" {
+            if let recVc = segue.destination as? recipeViewController{
+                recVc.account = account
+                recVc.context = context
+            }
         }
     }
 }
