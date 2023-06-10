@@ -23,6 +23,8 @@ class preferenceViewController: UIViewController {
     var selectFlag = false
     var account: Account!
     var context: NSManagedObjectContext?
+    var meals: [Meal] = []
+    var mealSelected: [Meal] = []
 
 
 
@@ -66,6 +68,50 @@ class preferenceViewController: UIViewController {
             sender.backgroundColor = UIColor.white
             sender.setTitleColor(UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0), for: .normal)
             selectFlag = false
+        }
+        
+        if sender == meatLover {
+            let meal1 = Meal(context: context ?? (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+            meal1.name = "Creamy tarragon chicken bake"
+            meal1.mealNum = "N3"
+            meal1.calories = 320
+            meal1.carbs = 18
+            meal1.protein = 40
+            meal1.glutenF = true
+            meal1.vege = false
+            
+            let meal2 = Meal(context: context ?? (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+            meal2.name = "Peanut butter chicken"
+            meal2.mealNum = "DF1"
+            meal2.calories = 572
+            meal2.carbs = 33
+            meal2.protein = 13
+            meal2.glutenF = true
+            meal2.vege = false
+            
+            let meal3 = Meal(context: context ?? (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+            meal3.name = "Honey chicken"
+            meal3.mealNum = "DF2"
+            meal3.calories = 333
+            meal3.carbs = 35
+            meal3.protein = 36
+            meal3.glutenF = false
+            meal3.vege = false
+            
+            let meal4 = Meal(context: context ?? (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+            meal4.name = "Crispy sesame lemon chicken"
+            meal4.mealNum = "DF3"
+            meal4.calories = 280
+            meal4.carbs = 26
+            meal4.protein = 26
+            meal4.glutenF = false
+            meal4.vege = false
+            do {
+                        try context!.save()
+                        print("Meal saved to Core Data")
+                    } catch let error as NSError {
+                        print("Failed to save meal to Core Data. Error: \(error), \(error.userInfo)")
+                    }
         }
     }
     

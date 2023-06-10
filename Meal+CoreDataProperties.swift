@@ -16,17 +16,14 @@ extension Meal {
         return NSFetchRequest<Meal>(entityName: "Meal")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var mealNum: String?
     @NSManaged public var calories: Int64
-    @NSManaged public var protein: Int64
-    @NSManaged public var meat: Bool
     @NSManaged public var carbs: Int64
     @NSManaged public var glutenF: Bool
+    @NSManaged public var mealNum: String?
+    @NSManaged public var meat: Bool
+    @NSManaged public var name: String?
+    @NSManaged public var protein: Int64
     @NSManaged public var vege: Bool
-    @NSManaged public var nutF: Bool
-    @NSManaged public var dairyF: Bool
-    @NSManaged public var fishF: Bool
 
 }
 

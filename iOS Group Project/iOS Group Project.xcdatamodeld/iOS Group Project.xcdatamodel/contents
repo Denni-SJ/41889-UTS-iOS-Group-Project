@@ -14,13 +14,10 @@
     <entity name="Meal" representedClassName="Meal" syncable="YES">
         <attribute name="calories" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="carbs" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="dairyF" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="fishF" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="glutenF" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="mealNum" optional="YES" attributeType="String"/>
         <attribute name="meat" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="nutF" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="protein" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="vege" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
