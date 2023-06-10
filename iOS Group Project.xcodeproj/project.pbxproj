@@ -25,6 +25,7 @@
 		3BB6053B2A0DDAD900BEB449 /* recipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB6053A2A0DDAD900BEB449 /* recipeViewController.swift */; };
 		79898BC22A307C630012D11C /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79898BC12A307C630012D11C /* Meal.swift */; };
 		863DE3542A1A734F0073A9DE /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 863DE3532A1A734F0073A9DE /* menuViewController.swift */; };
+		866669DA2A34B283007A5C13 /* iOS Group Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 866669D82A34B282007A5C13 /* iOS Group Project.xcdatamodeld */; };
 		86E543522A0F531C0039E7CF /* Accounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86E543512A0F531C0039E7CF /* Accounts.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		3BB6053A2A0DDAD900BEB449 /* recipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeViewController.swift; sourceTree = "<group>"; };
 		79898BC12A307C630012D11C /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		863DE3532A1A734F0073A9DE /* menuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = SOURCE_ROOT; };
+		866669D92A34B283007A5C13 /* iOS Group Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "iOS Group Project.xcdatamodel"; sourceTree = "<group>"; };
 		86E543512A0F531C0039E7CF /* Accounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accounts.swift; sourceTree = SOURCE_ROOT; };
 		BF4319501B50D8BA0E920A5A /* Pods-iOS Group Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Group Project.debug.xcconfig"; path = "Target Support Files/Pods-iOS Group Project/Pods-iOS Group Project.debug.xcconfig"; sourceTree = "<group>"; };
 		F0E665908B40FBFF16594B6A /* Pods_iOS_Group_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOS_Group_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,6 +108,7 @@
 				3B2C54532A093B8200635175 /* Assets.xcassets */,
 				3B2C54552A093B8200635175 /* LaunchScreen.storyboard */,
 				3B2C54582A093B8200635175 /* Info.plist */,
+				866669D82A34B282007A5C13 /* iOS Group Project.xcdatamodeld */,
 			);
 			path = "iOS Group Project";
 			sourceTree = "<group>";
@@ -124,7 +127,6 @@
 				BF4319501B50D8BA0E920A5A /* Pods-iOS Group Project.debug.xcconfig */,
 				31453072F5A20C265D10B5CA /* Pods-iOS Group Project.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -230,6 +232,7 @@
 				3BB605392A0DD69700BEB449 /* portionViewController.swift in Sources */,
 				3BB6053B2A0DDAD900BEB449 /* recipeViewController.swift in Sources */,
 				3B1851182A0A08F900C1CAAF /* signUpViewController.swift in Sources */,
+				866669DA2A34B283007A5C13 /* iOS Group Project.xcdatamodeld in Sources */,
 				3BA3E91E2A09C75A0004D21B /* postalCodeViewController.swift in Sources */,
 				3B2C544B2A093B8100635175 /* AppDelegate.swift in Sources */,
 				863DE3542A1A734F0073A9DE /* menuViewController.swift in Sources */,
@@ -457,6 +460,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		866669D82A34B282007A5C13 /* iOS Group Project.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				866669D92A34B283007A5C13 /* iOS Group Project.xcdatamodel */,
+			);
+			currentVersion = 866669D92A34B283007A5C13 /* iOS Group Project.xcdatamodel */;
+			path = "iOS Group Project.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3B2C543F2A093B8100635175 /* Project object */;
 }
