@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Accounts
 import UIKit
 import UserNotifications
 
@@ -64,14 +63,7 @@ class addressViewController: UIViewController {
         if (checkEmpty == false) {
             var phoneNum: String = phoneNumberText.text!
             var postal: String = postalCodeText.text!
-            Account.shared.fName = firstNameText.text
-            Account.shared.lName = lastNameText.text
-            Account.shared.address = addressLine1Text.text
-            Account.shared.address2 = addressLine2Text.text
-            Account.shared.city = cityText.text
-            Account.shared.phone = Int(phoneNum)
-            Account.shared.postal = Int(postal)
-            Account.shared.deliveryInst = deliveryInstructionsText.text
+          
             
             let alertController = UIAlertController(title: "Meal Sent", message: "Your meal plan has been confirmed and sent to the following address: \(addressLine1Text.text!)", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
