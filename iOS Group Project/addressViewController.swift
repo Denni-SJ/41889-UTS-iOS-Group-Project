@@ -1,8 +1,8 @@
 //
-//  addressViewController.swift
+//  detailsViewController.swift
 //  iOS Group Project
 //
-//  Created by Louis Tsou on 15/5/2023.
+//  Created by K on 10/6/2023.
 //
 
 import Foundation
@@ -19,54 +19,57 @@ class addressViewController: UIViewController {
     @IBOutlet weak var cityText: UITextField!
     @IBOutlet weak var postalCodeText: UITextField!
     @IBOutlet weak var phoneNumberText: UITextField!
-    @IBOutlet weak var deliveryInstructText: UITextField!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var deliveryInstructionsText: UITextField!
+    @IBOutlet weak var continueButton: UIButton!
     
-    var userEmail:String = ""
-//    let newAccount = Account()
-    var checkEmpty:Bool = false
+    var userEmail: String = ""
+    // let newAccount = Account()
+    var checkEmpty: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var email = UserDefaults.standard.string(forKey: userEmail)
-    }
-    @IBAction func submitButtonPressed(_ sender: UIButton) {
         
+        var email = UserDefaults.standard.string(forKey: userEmail)
+        
+        continueButton.layer.cornerRadius = 10
+        continueButton.layer.masksToBounds = true
+    }
+    
+    
+    @IBAction func continueButtonTapped(_ sender: Any) {
         if self.firstNameText.text == nil {
             checkEmpty = true
         }
         
-       
         if self.lastNameText.text == nil {
             checkEmpty = true
         }
-
+        
         if self.addressLine1Text.text == nil {
             checkEmpty = true
         }
-
+        
         if self.addressLine2Text.text == nil {
             checkEmpty = true
         }
-
+        
         if self.cityText.text == nil {
             checkEmpty = true
         }
-
+        
         if self.postalCodeText.text == nil {
             checkEmpty = true
         }
-
+        
         if self.phoneNumberText.text == nil {
             checkEmpty = true
         }
 
-        if self.deliveryInstructText.text == nil {
+        if self.deliveryInstructionsText.text == nil {
             checkEmpty = true
         }
         
         if !checkEmpty {
-            
             var phoneNum: String = phoneNumberText.text!
             var postal: String = postalCodeText.text!
             Account.shared.fName = firstNameText.text
@@ -76,9 +79,9 @@ class addressViewController: UIViewController {
             Account.shared.city = cityText.text
             Account.shared.phone = Int(phoneNum)
             Account.shared.postal = Int(postal)
-            Account.shared.deliveryInst = deliveryInstructText.text
+            Account.shared.deliveryInst = deliveryInstructionsText.text
             sendNotification()
-        }else {
+        } else {
             let alertController = UIAlertController(title: "Error", message: "Please fill in all the required text fields", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true, completion: nil)

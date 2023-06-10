@@ -30,6 +30,9 @@ class signInViewController: UIViewController {
         if rememberMeSwitch.isOn {
             loadSavedCredentials()
         }
+        
+        continueButton.layer.cornerRadius = 10
+        continueButton.layer.masksToBounds = true
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
