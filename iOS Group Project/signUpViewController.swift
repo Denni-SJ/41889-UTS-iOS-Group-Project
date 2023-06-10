@@ -7,13 +7,15 @@
 
 import Foundation
 import UIKit
-import Accounts
+
 
 class signUpViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var continueButton: UIButton!
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     override func viewDidLoad() {
@@ -65,8 +67,7 @@ class signUpViewController: UIViewController {
         
         performSegue(withIdentifier: "goToAd", sender: self)
                 
-        Account.shared.email = email
-        Account.shared.password = password
+        
         UserDefaults.standard.set(email, forKey: "email")
         UserDefaults.standard.set(password, forKey: "password")
         

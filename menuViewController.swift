@@ -8,27 +8,36 @@
 import Foundation
 import UIKit
 
-class menuViewController: UIViewController{
-    
+class menuViewController: UIViewController {
+
     @IBOutlet weak var reselectButton: UIButton!
     @IBOutlet weak var thisWeekButton: UIButton!
     @IBOutlet weak var pagesStackView: UIStackView!
+    @IBOutlet weak var menuStack1: UIStackView!
+    @IBOutlet weak var menuStack2: UIStackView!
+    @IBOutlet weak var menuStack3: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
         pagesStackView.layer.borderWidth = 5
-        pagesStackView.layer.borderColor = CGColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1)
-        let frame = CGRect(x:30, y:160, width: 330, height: 550)
+        pagesStackView.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
+        let frame = CGRect(x: 30, y: 160, width: 330, height: 550)
         let myView = UIView(frame: frame)
         myView.layer.borderWidth = 5
-        myView.layer.borderColor = CGColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1)
+        myView.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
         myView.layer.cornerRadius = 40
         self.view.addSubview(myView)
-        
+        self.view.sendSubviewToBack(myView)
         pagesStackView.layer.borderWidth = 5
-        pagesStackView.layer.borderColor = CGColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1)
-        }
+        pagesStackView.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
+        menuStack1.layer.borderWidth = 1
+        menuStack1.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
+        menuStack2.layer.borderWidth = 1
+        menuStack2.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
+        menuStack3.layer.borderWidth = 1
+        menuStack3.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
+    }
 
-   
-        
-    
+
+
+
 }
