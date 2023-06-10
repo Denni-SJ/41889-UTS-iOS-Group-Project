@@ -466,7 +466,7 @@
         <!--Menu View Controller-->
         <scene sceneID="YTi-yl-pEf">
             <objects>
-                <viewController title="Menu View Controller" id="eod-50-LOX" customClass="menuViewController" customModule="iOS_Group_Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menuViewController" title="Menu View Controller" id="eod-50-LOX" customClass="menuViewController" customModule="iOS_Group_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Abj-dn-gnN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -597,7 +597,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ID2-QX-SGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10017.557251908396" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="9714" y="4"/>
         </scene>
         <!--Portion View Controller-->
         <scene sceneID="88c-pe-IMY">

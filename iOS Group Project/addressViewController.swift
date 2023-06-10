@@ -76,6 +76,9 @@ class addressViewController: UIViewController {
             let alertController = UIAlertController(title: "Meal Sent", message: "Your meal plan has been confirmed and sent to the following address: \(addressLine1Text.text!)", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true, completion: nil)
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "menuViewController") as! menuViewController
+            self.navigationController?.pushViewController(vc, animated: true)
 
         } else if(checkEmpty == true) {
             let alertController = UIAlertController(title: "Error", message: "Please fill in all the required text fields", preferredStyle: .alert)
