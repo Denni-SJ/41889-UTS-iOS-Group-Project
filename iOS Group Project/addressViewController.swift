@@ -34,6 +34,8 @@ class addressViewController: UIViewController {
         super.viewDidLoad()
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
+        
+        greenBorder(to : [firstNameText, lastNameText, addressLine1Text, addressLine2Text, cityText, postalCodeText, phoneNumberText, deliveryInstructionsText])
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
@@ -86,7 +88,7 @@ class addressViewController: UIViewController {
         if (checkEmpty == false) {
             var phoneNum: String = phoneNumberText.text!
             var postal: String = postalCodeText.text!
-          
+            
             
             let alertController = UIAlertController(title: "Meal Sent", message: "Your meal plan has been confirmed and sent to the following address: \(addressLine1Text.text!)", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -94,14 +96,23 @@ class addressViewController: UIViewController {
             try! context?.save()
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "menuViewController") as! menuViewController
             self.navigationController?.pushViewController(vc, animated: true)
-
+            
         } else if(checkEmpty == true) {
             let alertController = UIAlertController(title: "Error", message: "Please fill in all the required text fields", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    private func greenBorder(to textFields: [UITextField]) {
+        let greenBorderColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0).cgColor
+        let borderWidth: CGFloat = 2.0
+        let cornerRadius: CGFloat = 10
         
-        
-        
+        for textField in textFields {
+            textField.layer.borderColor = greenBorderColor
+            textField.layer.borderWidth = borderWidth
+            textField.layer.cornerRadius = cornerRadius
+        }
     }
 }
