@@ -19,7 +19,7 @@ class Account {
     var address2: String?
     var postal: Int?
     var phone: Int?
-    var deliveryInst: String?
+   
     
     var mealSelect: [Meal] = []
     
