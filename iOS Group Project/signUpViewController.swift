@@ -48,6 +48,7 @@ class signUpViewController: UIViewController {
             present(alertController, animated: true, completion: nil)
             return
         }
+        
         if !isValidEmail(strToValidate: emailTextField.text!) {
             let alertController = UIAlertController(title: "Error", message: "Please fill in a correct email!", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -62,6 +63,8 @@ class signUpViewController: UIViewController {
             return
         }
         
+        performSegue(withIdentifier: "goToAd", sender: self)
+                
         Account.shared.email = email
         Account.shared.password = password
         UserDefaults.standard.set(email, forKey: "email")
@@ -71,5 +74,11 @@ class signUpViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK.", style: .default, handler: { (_) in
         }))
         present(alertController, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToAd" {
+            _ = segue.destination as! adViewController
+        }
     }
 }
