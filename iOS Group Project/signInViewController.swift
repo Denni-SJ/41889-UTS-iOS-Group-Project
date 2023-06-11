@@ -39,6 +39,11 @@ class signInViewController: UIViewController {
             return
         }
         
+        if email.isEmpty || password.isEmpty {
+            displayErrorAlert(message: "Please enter your email or password")
+            return
+        }
+        
         let request: NSFetchRequest<Account> = Account.fetchRequest()
         request.predicate = NSPredicate(format: "email = %@", email)
         
@@ -99,15 +104,19 @@ class signInViewController: UIViewController {
         do {
             let results = try context.fetch(request)
             if let account = results.first {
-                emailTextField.text = account.email
-                passwordTextField.text = account.password
-                rememberMeSwitch.isOn = true
-//                rememberMeSwitch.setOn(true, animated: false)
+                if rememberMeSwitch.isOn {
+                    emailTextField.text = account.email
+                    passwordTextField.text = account.password
+                    //rememberMeSwitch.isOn = true
+                    //                rememberMeSwitch.setOn(true, animated: false)
+                } else {
+                    clearCredentials()
+                    //rememberMeSwitch.isOn = false
+                    //                clearCredentials()
+                    //                rememberMeSwitch.setOn(false, animated: false)
+                }
             } else {
                 clearCredentials()
-                rememberMeSwitch.isOn = false
-//                clearCredentials()
-//                rememberMeSwitch.setOn(false, animated: false)
             }
         } catch {
             print("Failed to fetch saved credentials: \(error)")
