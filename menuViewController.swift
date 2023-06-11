@@ -22,18 +22,14 @@ class menuViewController: UIViewController {
     @IBOutlet weak var thirdMeal: UILabel!
     var meals: [Meal] = []
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var account:Account!
-    
+    var account: Account!
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem
+    }
 
-            let backItem = UIBarButtonItem()
-
-            backItem.title = "Back"
-
-            navigationItem.backBarButtonItem = backItem
-
-        }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         pagesStackView.layer.borderWidth = 5
@@ -54,21 +50,21 @@ class menuViewController: UIViewController {
         menuStack2.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
         menuStack3.layer.borderWidth = 1
         menuStack3.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
-        
-        
+
+
         let fetchRequest: NSFetchRequest<Meal> = Meal.fetchRequest()
-        
+
         do {
-                   meals = try context.fetch(fetchRequest)
-               } catch let error as NSError {
-                   print("Failed to fetch meals from Core Data. Error: \(error), \(error.userInfo)")
-               }
-        
+            meals = try context.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Failed to fetch meals from Core Data. Error: \(error), \(error.userInfo)")
+        }
+
         for meal in meals {
-                    print("Meal name: \(meal.name ?? "")")
-                    print("Meal carbs: \(meal.carbs)")
-                    // Access other attributes of the meal
-                }
+            print("Meal name: \(meal.name ?? "")")
+            print("Meal carbs: \(meal.carbs)")
+            // Access other attributes of the meal
+        }
         firstMeal.text = meals[0].name
         secondMeal.text = meals[1].name
         thirdMeal.text = meals[2].name
