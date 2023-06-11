@@ -20,6 +20,9 @@ class menuViewController: UIViewController {
     @IBOutlet weak var firstMeal: UILabel!
     @IBOutlet weak var secondMeal: UILabel!
     @IBOutlet weak var thirdMeal: UILabel!
+    @IBOutlet weak var firstImage: UIImageView!
+    @IBOutlet weak var secondImage: UIImageView!
+    @IBOutlet weak var thirdImage: UIImageView!
     var meals: [Meal] = []
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var account: Account!
@@ -68,6 +71,11 @@ class menuViewController: UIViewController {
         firstMeal.text = meals[0].name
         secondMeal.text = meals[1].name
         thirdMeal.text = meals[2].name
+        
+        
+        firstImage.image = UIImage(named: "\(meals[0].name!)")
+        secondImage.image = UIImage(named: "\(meals[1].name!)")
+        thirdImage.image = UIImage(named: "\(meals[2].name!)")
     }
 
 }
