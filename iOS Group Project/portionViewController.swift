@@ -26,9 +26,9 @@ class portionViewController: UIViewController {
         oneButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         twoButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         if account == nil {
-            print("PORP ACCOUNT EMPTY FUCK")
-        }else {
-            print("PORP ACCOUNT NOT EMPTY YAY")
+            print("PORP ACCOUNT EMPTY")
+        } else {
+            print("PORP ACCOUNT NOT EMPTY")
 
         }
         continueButton.layer.cornerRadius = 10
