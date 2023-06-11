@@ -122,6 +122,10 @@ class preferenceViewController: UIViewController {
                         print("Failed to save meal to Core Data. Error: \(error), \(error.userInfo)")
                     }
         }
+        else if sender == meatLover {
+            
+        }
+        
     }
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
