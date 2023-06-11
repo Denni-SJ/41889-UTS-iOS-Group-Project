@@ -30,8 +30,6 @@ class preferenceViewController: UIViewController {
         super.viewDidLoad()
         buttonSetUp()
         
-        ButtonStyle.customButton(to: meatLover, target: self, action: #selector(buttonPressed(_:)))
-        
         lowCarb.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         lowCalories.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         vegan.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
