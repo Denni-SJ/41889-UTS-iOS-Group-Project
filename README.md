@@ -1,7 +1,7 @@
 # 41889-UTS-iOS-Group-Project
 https://github.com/Denni-SJ/41889-UTS-iOS-Group-Project.git
 
-Link to presentation: https://youtu.be/-eozb_kdm8w
+Link to presentation: https://youtu.be/XdpLjhqZbxQ
 
 Tutor: Peter Leijdekkers
 
