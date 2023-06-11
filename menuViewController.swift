@@ -24,6 +24,16 @@ class menuViewController: UIViewController {
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var account:Account!
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+            let backItem = UIBarButtonItem()
+
+            backItem.title = "Back"
+
+            navigationItem.backBarButtonItem = backItem
+
+        }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pagesStackView.layer.borderWidth = 5
@@ -63,6 +73,5 @@ class menuViewController: UIViewController {
         secondMeal.text = meals[1].name
         thirdMeal.text = meals[2].name
     }
-
 
 }

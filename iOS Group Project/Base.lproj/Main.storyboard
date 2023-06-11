@@ -525,7 +525,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="NBu-P1-6vG" kind="show" id="mbw-d3-8AF"/>
+                                                    <segue destination="NBu-P1-6vG" kind="show" identifier="" id="mbw-d3-8AF"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-pz-vkY">
