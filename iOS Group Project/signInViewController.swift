@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class signInViewController: UIViewController {
     
@@ -15,16 +16,14 @@ class signInViewController: UIViewController {
     @IBOutlet weak var rememberMeSwitch: UISwitch!
     @IBOutlet weak var continueButton: UIButton!
     
+    var context: NSManagedObjectContext!
+    var account: Account?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set Remember Me switch is off
         rememberMeSwitch.isOn = false
-        
-        // Clear text fields
-        emailTextField.text = "Email"
-        passwordTextField.text = "Password"
         
         // Retrieve saved information if Remember Me is on
         if rememberMeSwitch.isOn {
@@ -33,32 +32,42 @@ class signInViewController: UIViewController {
         
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        context = appDelegate.persistentContainer.viewContext
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
-        guard let savedEmail = UserDefaults.standard.string(forKey: "email"),
-              let savedPassword = UserDefaults.standard.string(forKey: "password"),
-              let email = emailTextField.text,
+        guard let email = emailTextField.text,
               let password = passwordTextField.text else {
             return
         }
         
-        // Check username and password
-        if email == savedEmail && password == savedPassword {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "adViewController") as! adViewController
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-            // Check remember me switch is on
-            if rememberMeSwitch.isOn {
-                saveCredentials()
+        let request: NSFetchRequest<Account> = Account.fetchRequest()
+        request.predicate = NSPredicate(format: "email = %@", email)
+        
+        do {
+            let results = try context.fetch(request)
+            if let account = results.first {
+                if account.password == password {
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "adViewController") as! adViewController
+                    vc.account = account
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
+                    // Check remember me switch is on
+                    if rememberMeSwitch.isOn {
+                        updateRememberMe(account)
+                    } else {
+                        clearCredentials()
+                    }
+                } else {
+                    displayErrorAlert(message: "Incorrect password")
+                }
             } else {
-                // Clear saved username and password
-                clearCredentials()
+                displayErrorAlert(message: "Account not found")
             }
-        } else {
-            let alertController = UIAlertController(title: "Error", message: "Incorrect email or password", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alertController, animated: true, completion: nil)
+        } catch {
+            displayErrorAlert(message: "Failed to fetch account")
         }
     }
     
@@ -71,25 +80,66 @@ class signInViewController: UIViewController {
     }
     
     private func loadSavedCredentials() {
-        DispatchQueue.main.async {
-            if let savedEmail = UserDefaults.standard.string(forKey: "email"),
-               let savedPassword = UserDefaults.standard.string(forKey: "password") {
-                self.emailTextField.text = savedEmail
-                self.passwordTextField.text = savedPassword
+        let request: NSFetchRequest<Account> = Account.fetchRequest()
+        
+        do {
+            let results = try context.fetch(request)
+            if let account = results.first {
+                emailTextField.text = account.email
+                passwordTextField.text = account.password
             }
+        } catch {
+            print("Failed to fetch saved credentials: \(error)")
         }
     }
     
     private func saveCredentials() {
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else {
+            return
+        }
         
-        UserDefaults.standard.set(email, forKey: "email")
-        UserDefaults.standard.set(password, forKey: "password")
+        let request: NSFetchRequest<Account> = Account.fetchRequest()
+        request.predicate = NSPredicate(format: "email = %@", email)
+
+        do {
+            let results = try context.fetch(request)
+            if let account = results.first {
+                account.password = password
+            } else {
+                let newAccount = Account(context: context)
+                newAccount.email = email
+                newAccount.password = password
+            }
+            
+            try context.save()
+        } catch {
+            print("Failed to save credentials: \(error)")
+        }
+    }
+    
+    private func updateRememberMe(_ account: Account) {
+        guard let password = passwordTextField.text else {
+            return
+        }
+        
+        account.password = password
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed to update Remember Me: \(error)")
+        }
     }
     
     private func clearCredentials() {
-        UserDefaults.standard.removeObject(forKey: "email")
-        UserDefaults.standard.removeObject(forKey: "password")
+        emailTextField.text = nil
+        passwordTextField.text = nil
+    }
+
+    private func displayErrorAlert(message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
 }
