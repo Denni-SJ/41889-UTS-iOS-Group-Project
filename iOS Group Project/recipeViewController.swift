@@ -52,11 +52,13 @@ class recipeViewController: UIViewController {
     
     @objc func buttonPressed(_ sender: UIButton) {
         if !selectFlag {
-            sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5)
+            sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0)
+            sender.setTitleColor(UIColor.white, for: .normal)
             selectFlag = true
         }
-        else if sender.backgroundColor == UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5) {
+        else if sender.backgroundColor == UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0) {
             sender.backgroundColor = UIColor.white
+            sender.setTitleColor(UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0), for: .normal)
             selectFlag = false
         }
     }

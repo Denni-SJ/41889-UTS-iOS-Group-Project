@@ -24,9 +24,6 @@ class preferenceViewController: UIViewController {
     var account: Account!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var meals: [Meal] = []
-    var Button = ButtonStyle()
-    
-
 
 
     override func viewDidLoad() {
@@ -43,12 +40,12 @@ class preferenceViewController: UIViewController {
         halal.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         upForEverything.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         if account == nil {
-            print("PREF ACCOUNT EMPTY FUCK")
+            print("PREF ACCOUNT EMPTY")
         }else {
-            print("PREF ACCOUNT NOT EMPTY YAY")
+            print("PREF ACCOUNT NOT EMPTY")
 
         }
-        continueButton.layer.cornerRadius = 20
+        continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
     }
 
@@ -69,15 +66,16 @@ class preferenceViewController: UIViewController {
     
     @objc func buttonPressed(_ sender: UIButton) {
         if !selectFlag {
-            sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5)
+            sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0)
             sender.setTitleColor(UIColor.white, for: .normal)
             selectFlag = true
         }
-        else if sender.backgroundColor == UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5) {
+        else if sender.backgroundColor == UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0) {
             sender.backgroundColor = UIColor.white
             sender.setTitleColor(UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0), for: .normal)
             selectFlag = false
         }
+        
         
         if sender == meatLover {
             let meal1 = Meal(context: context )
