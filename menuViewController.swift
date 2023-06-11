@@ -59,6 +59,7 @@ class menuViewController: UIViewController {
         firstButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         secondButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         thirdButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+        fourthButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         let fetchRequest: NSFetchRequest<Meal> = Meal.fetchRequest()
         
         do {
