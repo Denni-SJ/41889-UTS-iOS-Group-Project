@@ -3,7 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -542,7 +542,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="CHt-zf-nyQ">
-                                <rect key="frame" x="46.666666666666657" y="256" width="300" height="340"/>
+                                <rect key="frame" x="46.666666666666657" y="196" width="300" height="460"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2sK-cb-QUv">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
@@ -598,9 +598,24 @@
                                             <constraint firstAttribute="width" constant="300" id="hMm-ga-OWO"/>
                                         </constraints>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXD-8m-WK2">
+                                        <rect key="frame" x="0.0" y="360" width="300" height="100"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byc-Iy-fjG">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="300" id="CHg-Vt-0dI"/>
+                                                    <constraint firstAttribute="height" constant="100" id="LZl-wy-Wcu"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG5-O6-cOc">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG5-O6-cOc" customClass="ButtonStlye">
                                 <rect key="frame" x="243" y="164" width="90" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -621,9 +636,11 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="firstButton" destination="Vhv-L9-p5w" id="V8J-hc-IGV"/>
+                        <outlet property="fourthButton" destination="Byc-Iy-fjG" id="QCT-bT-FcU"/>
                         <outlet property="menuStack1" destination="2sK-cb-QUv" id="ijf-29-Iqc"/>
                         <outlet property="menuStack2" destination="azH-8i-csb" id="NHy-3V-Bgr"/>
                         <outlet property="menuStack3" destination="mAj-RK-Zew" id="fvI-aK-OTo"/>
+                        <outlet property="menuStack4" destination="dXD-8m-WK2" id="Q5Z-bs-oUj"/>
                         <outlet property="pagesStackView" destination="DXF-dO-KjT" id="am2-Mb-F5w"/>
                         <outlet property="reselectButton" destination="WG5-O6-cOc" id="2Vu-55-wXT"/>
                         <outlet property="secondButton" destination="dpV-RZ-7e0" id="3er-DK-8ho"/>

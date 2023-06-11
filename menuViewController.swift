@@ -17,9 +17,11 @@ class menuViewController: UIViewController {
     @IBOutlet weak var menuStack1: UIStackView!
     @IBOutlet weak var menuStack2: UIStackView!
     @IBOutlet weak var menuStack3: UIStackView!
+    @IBOutlet weak var menuStack4: UIStackView!
     @IBOutlet weak var firstButton: UIButton!
     @IBOutlet weak var secondButton: UIButton!
     @IBOutlet weak var thirdButton: UIButton!
+    @IBOutlet weak var fourthButton: UIButton!
     var meals: [Meal] = []
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var account: Account!
@@ -76,11 +78,12 @@ class menuViewController: UIViewController {
         secondButton.setImage(UIImage(named: "\(meals[1].name!)"), for: .normal)
         thirdButton.setTitle("\(meals[2].name!)", for: .normal)
         thirdButton.setImage(UIImage(named: "\(meals[2].name!)"), for: .normal)
-        
+        fourthButton.setTitle("\(meals[3].name!)", for: .normal)
+        fourthButton.setImage(UIImage(named: "\(meals[3].name!)"), for: .normal)
     }
     
     func buttonSetUp() {
-        let buttonsArray = [firstButton, secondButton, thirdButton].compactMap { $0 }
+        let buttonsArray = [firstButton, secondButton, thirdButton, fourthButton].compactMap { $0 }
         borderOfButtons(buttons: buttonsArray)
     }
     
