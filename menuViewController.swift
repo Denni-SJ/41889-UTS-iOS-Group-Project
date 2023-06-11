@@ -17,6 +17,9 @@ class menuViewController: UIViewController {
     @IBOutlet weak var menuStack1: UIStackView!
     @IBOutlet weak var menuStack2: UIStackView!
     @IBOutlet weak var menuStack3: UIStackView!
+    @IBOutlet weak var firstMeal: UILabel!
+    @IBOutlet weak var secondMeal: UILabel!
+    @IBOutlet weak var thirdMeal: UILabel!
     var meals: [Meal] = []
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var account:Account!
@@ -32,8 +35,9 @@ class menuViewController: UIViewController {
         myView.layer.cornerRadius = 40
         self.view.addSubview(myView)
         self.view.sendSubviewToBack(myView)
-        pagesStackView.layer.borderWidth = 5
+        pagesStackView.layer.borderWidth = 1
         pagesStackView.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
+        pagesStackView.layer.cornerRadius = 10
         menuStack1.layer.borderWidth = 1
         menuStack1.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
         menuStack2.layer.borderWidth = 1
@@ -55,6 +59,9 @@ class menuViewController: UIViewController {
                     print("Meal carbs: \(meal.carbs)")
                     // Access other attributes of the meal
                 }
+        firstMeal.text = meals[0].name
+        secondMeal.text = meals[1].name
+        thirdMeal.text = meals[2].name
     }
 
 
