@@ -932,7 +932,7 @@ Please come again later:)</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WC3-qJ-Vg5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10213" y="810"/>
+            <point key="canvasLocation" x="10212.977099236641" y="809.85915492957747"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
