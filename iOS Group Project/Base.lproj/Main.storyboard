@@ -479,13 +479,7 @@
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG5-O6-cOc">
-                                <rect key="frame" x="279" y="141" width="90" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Reselect"/>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="DXF-dO-KjT">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="DXF-dO-KjT">
                                 <rect key="frame" x="35" y="777" width="322" height="54.666666666666629"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="U8J-fm-7b9">
@@ -495,9 +489,12 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="house" catalog="system" title=""/>
+                                                <connections>
+                                                    <segue destination="eod-50-LOX" kind="show" id="Riy-Mq-Qrm"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaX-Id-EUC">
-                                                <rect key="frame" x="0.0" y="34.333333333333336" width="96" height="20.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="34.333333333333371" width="96" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -513,7 +510,7 @@
                                                 <buttonConfiguration key="configuration" style="plain" image="bell" catalog="system" title=""/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUi-jT-9WM">
-                                                <rect key="frame" x="0.0" y="34.333333333333336" width="96" height="20.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="34.333333333333371" width="96" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -527,9 +524,12 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="gearshape" catalog="system"/>
+                                                <connections>
+                                                    <segue destination="NBu-P1-6vG" kind="show" id="mbw-d3-8AF"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-pz-vkY">
-                                                <rect key="frame" x="0.0" y="34.333333333333336" width="96" height="20.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="34.333333333333371" width="96" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -576,12 +576,19 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG5-O6-cOc">
+                                <rect key="frame" x="243" y="164" width="90" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reselect"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4d3-FW-2Yd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DXF-dO-KjT" firstAttribute="leading" secondItem="Abj-dn-gnN" secondAttribute="leading" constant="35" id="Jph-yj-5FX"/>
                             <constraint firstAttribute="trailing" secondItem="DXF-dO-KjT" secondAttribute="trailing" constant="36" id="T84-Y2-DGS"/>
+                            <constraint firstAttribute="bottom" secondItem="DXF-dO-KjT" secondAttribute="bottom" constant="20.329999999999998" id="XKU-5R-2o1"/>
                             <constraint firstItem="CHt-zf-nyQ" firstAttribute="centerX" secondItem="Abj-dn-gnN" secondAttribute="centerX" id="Zvv-6o-KeW"/>
                             <constraint firstItem="CHt-zf-nyQ" firstAttribute="centerY" secondItem="Abj-dn-gnN" secondAttribute="centerY" id="g1G-0h-Lko"/>
                         </constraints>
@@ -892,6 +899,44 @@ Let us know your address:)</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6r0-Lv-CR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8752" y="4"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="yqJ-Ye-3wa">
+            <objects>
+                <viewController id="NBu-P1-6vG" customClass="settingsViewController" customModule="iOS_Group_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TOI-Jy-11J">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuB-Ba-Ofa">
+                                <rect key="frame" x="138" y="59" width="116" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0t-ds-hGP">
+                                <rect key="frame" x="19" y="385" width="355" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">"Under Maintenance"
+Please come again later:)</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aNv-71-fgM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="exQ-KQ-Tpo"/>
+                    <connections>
+                        <outlet property="errorMessage" destination="Z0t-ds-hGP" id="wUL-bY-ncQ"/>
+                        <outlet property="settings" destination="UuB-Ba-Ofa" id="dVz-i3-Yee"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WC3-qJ-Vg5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10212.977099236641" y="809.85915492957747"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -23,7 +23,6 @@ class addressViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     
     var userEmail: String = ""
-    
     var checkEmpty: Bool = false
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -92,16 +91,12 @@ class addressViewController: UIViewController {
         }
         
         if (checkEmpty == false) {
-            var phoneNum: String = phoneNumberText.text!
-            var postal: String = postalCodeText.text!
-            
-            
-            let alertController = UIAlertController(title: "Meal Sent", message: "Your meal plan has been confirmed and sent to the following address: \(addressLine1Text.text!)", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alertController, animated: true, completion: nil)
+
             try! context.save()
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "menuViewController") as! menuViewController
+            print("SAVED")
             
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "menuViewController") as! menuViewController
+            vc.account = account
             self.navigationController?.pushViewController(vc, animated: true)
             
         } else if(checkEmpty == true) {
