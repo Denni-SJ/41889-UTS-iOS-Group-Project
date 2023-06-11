@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+import CoreData
 
 class signUpViewController: UIViewController {
 
@@ -16,7 +16,7 @@ class signUpViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+    var account: Account = Account()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +65,7 @@ class signUpViewController: UIViewController {
             return
         }
         
-        var account = Account(context: context)
+        account = Account(context: context)
         account.email = emailTextField.text
         account.password = passwordTextField.text
         
@@ -85,13 +85,16 @@ class signUpViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToAd" {
-            if let adVC = segue.destination as? adViewController, let account = sender as? Account {
+        
+            if let adVC = segue.destination as? adViewController {
                 _ = segue.destination as! adViewController
                 
                 adVC.account = account
-                adVC.context = context
+                print(account.email)
+                print(account.password)
+                print(account.fName)
+//                adVC.context = context
             }
-        }
+        
     }
 }

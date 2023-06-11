@@ -26,15 +26,21 @@ class addressViewController: UIViewController {
     
     var checkEmpty: Bool = false
     
-    var context: NSManagedObjectContext?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     var account: Account!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if account == nil {
+            print("ADDr ACCOUNT EMPTY FUCK")
+        }else {
+            print("ADDr ACCOUNT NOT EMPTY YAY")
+
+        }
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
-        
+//        print(account)
         greenBorder(to : [firstNameText, lastNameText, addressLine1Text, addressLine2Text, cityText, postalCodeText, phoneNumberText, deliveryInstructionsText])
     }
     
@@ -93,8 +99,9 @@ class addressViewController: UIViewController {
             let alertController = UIAlertController(title: "Meal Sent", message: "Your meal plan has been confirmed and sent to the following address: \(addressLine1Text.text!)", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alertController, animated: true, completion: nil)
-            try! context?.save()
+            try! context.save()
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "menuViewController") as! menuViewController
+            
             self.navigationController?.pushViewController(vc, animated: true)
             
         } else if(checkEmpty == true) {

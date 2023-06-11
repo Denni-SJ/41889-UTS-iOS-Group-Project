@@ -14,8 +14,8 @@ class adViewController: UIViewController {
     @IBOutlet weak var appetiteButton: UIButton!
     
     var account: Account!
-    var context: NSManagedObjectContext?
-    var meals: [Meal] = []
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
 //
 //    var mealData = [
 //        ["name" : "Burnt aubergine veggie chilli", "mealNum": "V01", "calories": 0,
@@ -35,16 +35,23 @@ class adViewController: UIViewController {
         appetiteButton.layer.masksToBounds = true
         appetiteButton.layer.borderWidth = 2.0
         appetiteButton.layer.borderColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0).cgColor
-        
+        print(account)
+        if account == nil {
+            print("ACCOUNT EMPTY FUCK")
+        }else {
+            print("ACCOUNT NOT EMPTY YAY")
+
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "preferenceViewController" {
+        
             if let prefVc = segue.destination as? preferenceViewController {
                 prefVc.account = account
-                prefVc.context = context
+                print(prefVc.account)
+                
             }
-        }
+        
     }
     
     

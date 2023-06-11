@@ -16,7 +16,7 @@ class recipeViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     var selectFlag: Bool = false
     var account: Account!
-    var context: NSManagedObjectContext?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     
     override func viewDidLoad() {
@@ -28,6 +28,12 @@ class recipeViewController: UIViewController {
         
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
+        if account == nil {
+            print("REC ACCOUNT EMPTY FUCK")
+        }else {
+            print("REC ACCOUNT NOT EMPTY YAY")
+
+        }
     }
     
     func buttonSetUp() {
@@ -58,6 +64,7 @@ class recipeViewController: UIViewController {
     @IBAction func continueButtonPressed(_ sender: UIButton) {
         if selectFlag {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "addressViewController") as! addressViewController
+            vc.account = account
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else {
@@ -68,12 +75,12 @@ class recipeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addressViewController" {
+       
             if let addVc = segue.destination as? addressViewController{
                 addVc.account = account
-                addVc.context = context
+                print(addVc.account)
+//                addVc.context = context
             }
-        }
         
     }
 }

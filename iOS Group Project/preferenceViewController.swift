@@ -22,7 +22,7 @@ class preferenceViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     var selectFlag = false
     var account: Account!
-    var context: NSManagedObjectContext?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var meals: [Meal] = []
     
 
@@ -39,7 +39,12 @@ class preferenceViewController: UIViewController {
         asian.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         halal.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         upForEverything.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
-        
+        if account == nil {
+            print("PREF ACCOUNT EMPTY FUCK")
+        }else {
+            print("PREF ACCOUNT NOT EMPTY YAY")
+
+        }
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
     }
@@ -71,7 +76,7 @@ class preferenceViewController: UIViewController {
         }
         
         if sender == meatLover {
-            let meal1 = Meal(context: context ?? (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+            let meal1 = Meal(context: context )
             meal1.name = "Creamy tarragon chicken bake"
             meal1.mealNum = "N3"
             meal1.calories = 320
@@ -80,7 +85,7 @@ class preferenceViewController: UIViewController {
             meal1.glutenF = true
             meal1.vege = false
             
-            let meal2 = Meal(context: context ?? (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+            let meal2 = Meal(context: context)
             meal2.name = "Peanut butter chicken"
             meal2.mealNum = "DF1"
             meal2.calories = 572
@@ -89,7 +94,7 @@ class preferenceViewController: UIViewController {
             meal2.glutenF = true
             meal2.vege = false
             
-            let meal3 = Meal(context: context ?? (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+            let meal3 = Meal(context: context)
             meal3.name = "Honey chicken"
             meal3.mealNum = "DF2"
             meal3.calories = 333
@@ -98,7 +103,7 @@ class preferenceViewController: UIViewController {
             meal3.glutenF = false
             meal3.vege = false
             
-            let meal4 = Meal(context: context ?? (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+            let meal4 = Meal(context: context)
             meal4.name = "Crispy sesame lemon chicken"
             meal4.mealNum = "DF3"
             meal4.calories = 280
@@ -107,8 +112,12 @@ class preferenceViewController: UIViewController {
             meal4.glutenF = false
             meal4.vege = false
             do {
-                        try context!.save()
+                        try context.save()
                         print("Meal saved to Core Data")
+                        print(meal1)
+                        print(meal2)
+                        print(meal3)
+                        print(meal4)
                     } catch let error as NSError {
                         print("Failed to save meal to Core Data. Error: \(error), \(error.userInfo)")
                     }
@@ -118,6 +127,7 @@ class preferenceViewController: UIViewController {
     @IBAction func continueButtonPressed(_ sender: UIButton) {
         if selectFlag {
                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "portionViewController") as! portionViewController
+            vc.account = account
                    self.navigationController?.pushViewController(vc, animated: true)
                }
                else {
@@ -128,11 +138,17 @@ class preferenceViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "portionViewController" {
-            if let porpVc = segue.destination as? portionViewController {
-                porpVc.account = account
-                porpVc.context = context
-            }
+        print("Its RUNNING")
+        if account == nil {
+            print("HANG ON ITS EMPTY ")
+        } else{
+            print("NOT EMPTY")
         }
+        if let porpVc = segue.destination as? portionViewController {
+            porpVc.account = account
+            print(porpVc.account)
+            
+        }
+        
     }
 }

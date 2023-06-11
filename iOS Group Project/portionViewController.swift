@@ -16,7 +16,7 @@ class portionViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     var selectFlag = false
     var account: Account!
-    var context: NSManagedObjectContext?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     
     
@@ -25,7 +25,12 @@ class portionViewController: UIViewController {
         buttonSetUp()
         oneButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         twoButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
-        
+        if account == nil {
+            print("PORP ACCOUNT EMPTY FUCK")
+        }else {
+            print("PORP ACCOUNT NOT EMPTY YAY")
+
+        }
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
     }
@@ -58,6 +63,7 @@ class portionViewController: UIViewController {
     @IBAction func continueButtonPressed(_ sender: UIButton) {
         if selectFlag {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "recipeViewController") as! recipeViewController
+            vc.account = account
             self.navigationController?.pushViewController(vc, animated: true)
         }
         else {
@@ -68,11 +74,10 @@ class portionViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "recipeViewController" {
+       
             if let recVc = segue.destination as? recipeViewController{
                 recVc.account = account
-                recVc.context = context
+//                recVc.context = context
             }
-        }
     }
 }
