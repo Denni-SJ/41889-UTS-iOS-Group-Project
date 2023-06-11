@@ -67,7 +67,6 @@ class signInViewController: UIViewController {
     }
     
     
-    
     @IBAction func rememberMeSwitchChanged(_ switchState: UISwitch) {
         if switchState.isOn {
             guard let email = emailTextField.text,
@@ -94,7 +93,6 @@ class signInViewController: UIViewController {
             }
         } else {
             clearCredentials()
-//            rememberMeSwitch.setOn(false, animated: true)
         }
     }
     
@@ -107,13 +105,8 @@ class signInViewController: UIViewController {
                 if rememberMeSwitch.isOn {
                     emailTextField.text = account.email
                     passwordTextField.text = account.password
-                    //rememberMeSwitch.isOn = true
-                    //                rememberMeSwitch.setOn(true, animated: false)
                 } else {
                     clearCredentials()
-                    //rememberMeSwitch.isOn = false
-                    //                clearCredentials()
-                    //                rememberMeSwitch.setOn(false, animated: false)
                 }
             } else {
                 clearCredentials()
@@ -122,32 +115,6 @@ class signInViewController: UIViewController {
             print("Failed to fetch saved credentials: \(error)")
         }
     }
-    
-//    private func saveCredentials() {
-//        guard let email = emailTextField.text,
-//              let password = passwordTextField.text else {
-//            return
-//        }
-//
-//        let request: NSFetchRequest<Account> = Account.fetchRequest()
-//            request.predicate = NSPredicate(format: "email = %@", email)
-//
-//        do {
-//            let results = try context.fetch(request)
-//            if let account = results.first {
-//                account.email = email
-//                account.password = password
-//            } else {
-//                let newAccount = Account(context: context)
-//                newAccount.email = email
-//                newAccount.password = password
-//            }
-//
-//            try context.save()
-//        } catch {
-//            print("Failed to save credentials: \(error)")
-//        }
-//    }
     
     private func clearCredentials() {
         emailTextField.text = nil
