@@ -29,9 +29,9 @@ class adViewController: UIViewController {
         appetiteButton.layer.borderColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0).cgColor
         print(account!)
         if account == nil {
-            print("ACCOUNT EMPTY FUCK")
+            print("ACCOUNT EMPTY")
         }else {
-            print("ACCOUNT NOT EMPTY YAY")
+            print("ACCOUNT NOT EMPTY")
 
         }
     }

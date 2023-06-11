@@ -29,9 +29,9 @@ class recipeViewController: UIViewController {
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
         if account == nil {
-            print("REC ACCOUNT EMPTY FUCK")
+            print("REC ACCOUNT EMPTY")
         }else {
-            print("REC ACCOUNT NOT EMPTY YAY")
+            print("REC ACCOUNT NOT EMPTY")
 
         }
     }

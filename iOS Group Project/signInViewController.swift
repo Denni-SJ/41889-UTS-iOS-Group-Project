@@ -17,29 +17,30 @@ class signInViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     
     var context: NSManagedObjectContext!
-    var account: Account?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set Remember Me switch is off
-        rememberMeSwitch.isOn = false
-        
-        // Retrieve saved information if Remember Me is on
-        if rememberMeSwitch.isOn {
-            loadSavedCredentials()
-        }
-        
-        continueButton.layer.cornerRadius = 10
-        continueButton.layer.masksToBounds = true
+        rememberMeSwitch.addTarget(self, action: #selector(rememberMeSwitchChanged(_:)), for: .valueChanged)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
+        
+        loadSavedCredentials()
+        
+        continueButton.layer.cornerRadius = 10
+        continueButton.layer.masksToBounds = true
     }
+        
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else {
+            return
+        }
+        
+        if email.isEmpty || password.isEmpty {
+            displayErrorAlert(message: "Please enter your email or password")
             return
         }
         
@@ -54,12 +55,6 @@ class signInViewController: UIViewController {
                     vc.account = account
                     self.navigationController?.pushViewController(vc, animated: true)
                     
-                    // Check remember me switch is on
-                    if rememberMeSwitch.isOn {
-                        updateRememberMe(account)
-                    } else {
-                        clearCredentials()
-                    }
                 } else {
                     displayErrorAlert(message: "Incorrect password")
                 }
@@ -71,11 +66,35 @@ class signInViewController: UIViewController {
         }
     }
     
-    @IBAction func rememberMeSwitchChanged(_ sender: UISwitch) {
-        if sender.isOn {
-            saveCredentials()
+    
+    
+    @IBAction func rememberMeSwitchChanged(_ switchState: UISwitch) {
+        if switchState.isOn {
+            guard let email = emailTextField.text,
+                  let password = passwordTextField.text else {
+                return
+            }
+            
+            let request: NSFetchRequest<Account> = Account.fetchRequest()
+            request.predicate = NSPredicate(format: "email = %@", email)
+            
+            do {
+                let results = try context.fetch(request)
+                if let account = results.first {
+                    account.password = password
+                } else {
+                    let newAccount = Account(context: context)
+                    newAccount.email = email
+                    newAccount.password = password
+                }
+                
+                try context.save()
+            } catch {
+                print("Failed to save credentials: \(error)")
+            }
         } else {
             clearCredentials()
+//            rememberMeSwitch.setOn(false, animated: true)
         }
     }
     
@@ -85,52 +104,50 @@ class signInViewController: UIViewController {
         do {
             let results = try context.fetch(request)
             if let account = results.first {
-                emailTextField.text = account.email
-                passwordTextField.text = account.password
+                if rememberMeSwitch.isOn {
+                    emailTextField.text = account.email
+                    passwordTextField.text = account.password
+                    //rememberMeSwitch.isOn = true
+                    //                rememberMeSwitch.setOn(true, animated: false)
+                } else {
+                    clearCredentials()
+                    //rememberMeSwitch.isOn = false
+                    //                clearCredentials()
+                    //                rememberMeSwitch.setOn(false, animated: false)
+                }
+            } else {
+                clearCredentials()
             }
         } catch {
             print("Failed to fetch saved credentials: \(error)")
         }
     }
     
-    private func saveCredentials() {
-        guard let email = emailTextField.text,
-              let password = passwordTextField.text else {
-            return
-        }
-        
-        let request: NSFetchRequest<Account> = Account.fetchRequest()
-        request.predicate = NSPredicate(format: "email = %@", email)
-
-        do {
-            let results = try context.fetch(request)
-            if let account = results.first {
-                account.password = password
-            } else {
-                let newAccount = Account(context: context)
-                newAccount.email = email
-                newAccount.password = password
-            }
-            
-            try context.save()
-        } catch {
-            print("Failed to save credentials: \(error)")
-        }
-    }
-    
-    private func updateRememberMe(_ account: Account) {
-        guard let password = passwordTextField.text else {
-            return
-        }
-        
-        account.password = password
-        
-        do {
-            try context.save()
-        } catch {
-            print("Failed to update Remember Me: \(error)")
-        }
-    }
+//    private func saveCredentials() {
+//        guard let email = emailTextField.text,
+//              let password = passwordTextField.text else {
+//            return
+//        }
+//
+//        let request: NSFetchRequest<Account> = Account.fetchRequest()
+//            request.predicate = NSPredicate(format: "email = %@", email)
+//
+//        do {
+//            let results = try context.fetch(request)
+//            if let account = results.first {
+//                account.email = email
+//                account.password = password
+//            } else {
+//                let newAccount = Account(context: context)
+//                newAccount.email = email
+//                newAccount.password = password
+//            }
+//
+//            try context.save()
+//        } catch {
+//            print("Failed to save credentials: \(error)")
+//        }
+//    }
     
     private func clearCredentials() {
         emailTextField.text = nil

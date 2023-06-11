@@ -32,9 +32,9 @@ class addressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if account == nil {
-            print("ADDr ACCOUNT EMPTY FUCK")
+            print("ADDr ACCOUNT EMPTY")
         }else {
-            print("ADDr ACCOUNT NOT EMPTY YAY")
+            print("ADDr ACCOUNT NOT EMPTY")
 
         }
         continueButton.layer.cornerRadius = 10
