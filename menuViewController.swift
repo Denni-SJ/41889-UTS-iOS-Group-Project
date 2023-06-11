@@ -94,7 +94,7 @@ class menuViewController: UIViewController {
     }
     
     @objc func buttonPressed(_ sender: UIButton) {
-        if if sender.backgroundColor == UIColor.white {
+        if sender.backgroundColor == UIColor.white {
             sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5)
         }
         else {
