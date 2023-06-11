@@ -10,8 +10,8 @@ import UIKit
 
 class ButtonStyle {
     static func customButton(_ button: UIButton) {
-        if button.backgroundColor != UIColor(named: "green") {
-            button.backgroundColor = UIColor(named: "green")
+        if button.backgroundColor != UIColor(named: "Green") {
+            button.backgroundColor = UIColor(named: "Green")
         }
         else {
             button.backgroundColor = UIColor.white
