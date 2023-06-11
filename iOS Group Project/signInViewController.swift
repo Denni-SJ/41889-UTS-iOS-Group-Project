@@ -56,7 +56,7 @@ class signInViewController: UIViewController {
                     
                     // Check remember me switch is on
                     if rememberMeSwitch.isOn {
-                        updateRememberMe(account)
+                        saveCredentials()
                     } else {
                         clearCredentials()
                     }
@@ -73,6 +73,22 @@ class signInViewController: UIViewController {
     
     @IBAction func rememberMeSwitchChanged(_ sender: UISwitch) {
         if sender.isOn {
+            guard let email = emailTextField.text, let password = passwordTextField.text else {
+                return
+        }
+            let request: NSFetchRequest<Account> = Account.fetchRequest()
+            request.predicate = NSPredicate(format: "email = %@", email)
+            
+            do {
+                let results = try context.fetch(request)
+                if results.isEmpty {
+                    return
+                }
+            } catch {
+                print("Failed to fetch account: \(error)")
+                return
+            }
+            
             saveCredentials()
         } else {
             clearCredentials()
@@ -100,11 +116,12 @@ class signInViewController: UIViewController {
         }
         
         let request: NSFetchRequest<Account> = Account.fetchRequest()
-        request.predicate = NSPredicate(format: "email = %@", email)
+            request.predicate = NSPredicate(format: "email = %@", email)
 
         do {
             let results = try context.fetch(request)
             if let account = results.first {
+                account.email = email
                 account.password = password
             } else {
                 let newAccount = Account(context: context)
@@ -115,20 +132,6 @@ class signInViewController: UIViewController {
             try context.save()
         } catch {
             print("Failed to save credentials: \(error)")
-        }
-    }
-    
-    private func updateRememberMe(_ account: Account) {
-        guard let password = passwordTextField.text else {
-            return
-        }
-        
-        account.password = password
-        
-        do {
-            try context.save()
-        } catch {
-            print("Failed to update Remember Me: \(error)")
         }
     }
     
