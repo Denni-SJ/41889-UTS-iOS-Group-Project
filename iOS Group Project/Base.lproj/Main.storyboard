@@ -508,6 +508,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="bell" catalog="system" title=""/>
+                                                <connections>
+                                                    <segue destination="g6w-50-Thg" kind="show" id="6b3-vM-xCP"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUi-jT-9WM">
                                                 <rect key="frame" x="0.0" y="34.333333333333371" width="96" height="20.333333333333329"/>
@@ -939,6 +942,40 @@ Let us know your address:)</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6r0-Lv-CR2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8752" y="4"/>
+        </scene>
+        <!--Notification View Controller-->
+        <scene sceneID="Nm3-LD-Ncz">
+            <objects>
+                <viewController id="g6w-50-Thg" customClass="notificationViewController" customModule="iOS_Group_Project" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aEh-9I-f4y">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4td-oU-McE">
+                                <rect key="frame" x="112" y="59" width="169" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daS-yt-xEF">
+                                <rect key="frame" x="26" y="385" width="341" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Your inbox is empty:)
+Notification will be automatically sent</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xVE-LL-JaU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="lO8-gW-W8f"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3eo-yF-edZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9406.8702290076326" y="809.85915492957747"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="yqJ-Ye-3wa">
