@@ -23,7 +23,6 @@ class menuViewController: UIViewController {
     var meals: [Meal] = []
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var account: Account!
-    var selectFlag: Bool = false
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
@@ -95,13 +94,11 @@ class menuViewController: UIViewController {
     }
     
     @objc func buttonPressed(_ sender: UIButton) {
-        if !selectFlag {
+        if if sender.backgroundColor == UIColor.white {
             sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5)
-            selectFlag = true
         }
         else {
-            sender.backgroundColor = UIColor.white
-            selectFlag = false
+            sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5)
         }
     }
 }
