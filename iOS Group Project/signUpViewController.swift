@@ -16,7 +16,7 @@ class signUpViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    var account: Account = Account()
+//    var account: Account = Account()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,36 +65,32 @@ class signUpViewController: UIViewController {
             return
         }
         
-        account = Account(context: context)
+        let account = Account(context: context)
         account.email = emailTextField.text
         account.password = passwordTextField.text
         
-       
-        try! context.save()
+        do {
+            try context.save()
             performSegue(withIdentifier: "goToAd", sender: account)
-        
-        
-        
-        UserDefaults.standard.set(email, forKey: "email")
-        UserDefaults.standard.set(password, forKey: "password")
-        
-        let alertController = UIAlertController(title: "Success", message: "Account created!", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK.", style: .default, handler: { (_) in
-        }))
-        present(alertController, animated: true, completion: nil)
+            
+            let alertController = UIAlertController(title: "Success", message: "Account created!", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+            }))
+            present(alertController, animated: true, completion: nil)
+        } catch {
+            print("Failed to save account: \(error)")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-            if let adVC = segue.destination as? adViewController {
-                _ = segue.destination as! adViewController
-                
+        if let adVC = segue.destination as? adViewController {
+            if let account = sender as? Account {
                 adVC.account = account
-                print(account.email)
-                print(account.password)
-                print(account.fName)
-//                adVC.context = context
+                //                print(account.email)
+                //                print(account.password)
+                //                print(account.fName)
+                //                adVC.context = context
             }
-        
+        }
     }
 }
