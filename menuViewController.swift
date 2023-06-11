@@ -10,29 +10,26 @@ import UIKit
 import CoreData
 
 class menuViewController: UIViewController {
-
+    
     @IBOutlet weak var reselectButton: UIButton!
     @IBOutlet weak var thisWeekButton: UIButton!
     @IBOutlet weak var pagesStackView: UIStackView!
     @IBOutlet weak var menuStack1: UIStackView!
     @IBOutlet weak var menuStack2: UIStackView!
     @IBOutlet weak var menuStack3: UIStackView!
-    @IBOutlet weak var firstMeal: UILabel!
-    @IBOutlet weak var secondMeal: UILabel!
-    @IBOutlet weak var thirdMeal: UILabel!
-    @IBOutlet weak var firstImage: UIImageView!
-    @IBOutlet weak var secondImage: UIImageView!
-    @IBOutlet weak var thirdImage: UIImageView!
+    @IBOutlet weak var firstButton: UIButton!
+    @IBOutlet weak var secondButton: UIButton!
+    @IBOutlet weak var thirdButton: UIButton!
     var meals: [Meal] = []
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var account: Account!
-
+    var selectFlag: Bool = false
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let backItem = UIBarButtonItem()
         backItem.title = "Back"
         navigationItem.backBarButtonItem = backItem
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         pagesStackView.layer.borderWidth = 5
@@ -49,33 +46,62 @@ class menuViewController: UIViewController {
         pagesStackView.layer.cornerRadius = 10
         menuStack1.layer.borderWidth = 1
         menuStack1.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
+        menuStack1.layer.cornerRadius = 5
         menuStack2.layer.borderWidth = 1
         menuStack2.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
+        menuStack2.layer.cornerRadius = 5
         menuStack3.layer.borderWidth = 1
         menuStack3.layer.borderColor = CGColor(red: 52 / 255, green: 128 / 255, blue: 46 / 255, alpha: 1)
-
-
+        menuStack3.layer.cornerRadius = 5
+        
+        buttonSetUp()
+        firstButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+        secondButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+        thirdButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         let fetchRequest: NSFetchRequest<Meal> = Meal.fetchRequest()
-
+        
         do {
             meals = try context.fetch(fetchRequest)
         } catch let error as NSError {
             print("Failed to fetch meals from Core Data. Error: \(error), \(error.userInfo)")
         }
-
+        
         for meal in meals {
             print("Meal name: \(meal.name ?? "")")
             print("Meal carbs: \(meal.carbs)")
             // Access other attributes of the meal
         }
-        firstMeal.text = meals[0].name
-        secondMeal.text = meals[1].name
-        thirdMeal.text = meals[2].name
+        firstButton.setTitle("\(meals[0].name!)", for: .normal)
+        firstButton.setImage(UIImage(named: "\(meals[0].name!)"), for: .normal)
+        secondButton.setTitle("\(meals[1].name!)", for: .normal)
+        secondButton.setImage(UIImage(named: "\(meals[1].name!)"), for: .normal)
+        thirdButton.setTitle("\(meals[2].name!)", for: .normal)
+        thirdButton.setImage(UIImage(named: "\(meals[2].name!)"), for: .normal)
         
-        
-        firstImage.image = UIImage(named: "\(meals[0].name!)")
-        secondImage.image = UIImage(named: "\(meals[1].name!)")
-        thirdImage.image = UIImage(named: "\(meals[2].name!)")
     }
-
+    
+    func buttonSetUp() {
+        let buttonsArray = [firstButton, secondButton, thirdButton].compactMap { $0 }
+        borderOfButtons(buttons: buttonsArray)
+    }
+    
+    func borderOfButtons(buttons: [UIButton]) {
+        for button in buttons {
+            button.layer.borderWidth = 2.0
+            button.layer.borderColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0).cgColor
+            button.layer.cornerRadius = 10
+            button.layer.masksToBounds = true
+        }
+    }
+    
+    @objc func buttonPressed(_ sender: UIButton) {
+        if !selectFlag {
+            sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 0.5)
+            selectFlag = true
+        }
+        else {
+            sender.backgroundColor = UIColor.white
+            selectFlag = false
+        }
+    }
 }
