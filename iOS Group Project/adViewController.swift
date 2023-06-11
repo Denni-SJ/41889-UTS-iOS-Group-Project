@@ -17,15 +17,7 @@ class adViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
 //
-//    var mealData = [
-//        ["name" : "Burnt aubergine veggie chilli", "mealNum": "V01", "calories": 0,
-//         "protein": 0, "carbs": 0, "meat": false, "vege": true, "glutenF": false] ,
-//
-//        ["name" : "Auberine parmigiana lasagne", "mealNum": "V02", "calories": 466,
-//         "protein": 20, "carbs": 41, "meat": false, "vege": true, "glutenF": true],
-//
-//        ["name" : "Zeljanica (cheese & spinach pie)", "mealNum": "V03", "calories": 445,
-//         "protein": 15, "carbs": 27, "meat": false, "vege": true, "glutenF": true],
+//    
         
     
     override func viewDidLoad() {

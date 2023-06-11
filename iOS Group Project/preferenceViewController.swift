@@ -24,6 +24,7 @@ class preferenceViewController: UIViewController {
     var account: Account!
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var meals: [Meal] = []
+    var Button = ButtonStyle()
     
 
 
@@ -31,7 +32,9 @@ class preferenceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonSetUp()
-        meatLover.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
+        
+        ButtonStyle.customButton(to: meatLover, target: self, action: #selector(buttonPressed(_:)))
+        
         lowCarb.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         lowCalories.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         vegan.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
@@ -45,7 +48,7 @@ class preferenceViewController: UIViewController {
             print("PREF ACCOUNT NOT EMPTY YAY")
 
         }
-        continueButton.layer.cornerRadius = 10
+        continueButton.layer.cornerRadius = 20
         continueButton.layer.masksToBounds = true
     }
 
@@ -62,6 +65,7 @@ class preferenceViewController: UIViewController {
             button.layer.masksToBounds = true
         }
     }
+    
     
     @objc func buttonPressed(_ sender: UIButton) {
         if !selectFlag {
@@ -549,6 +553,7 @@ class preferenceViewController: UIViewController {
             print(porpVc.account)
             
         }
-        
     }
+    
+    
 }

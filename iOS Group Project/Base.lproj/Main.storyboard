@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -253,57 +254,68 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIS-nJ-zSF">
-                                <rect key="frame" x="35" y="287" width="130" height="60"/>
+                                <rect key="frame" x="24" y="317" width="163" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Meat Lover">
+                                <buttonConfiguration key="configuration" style="filled" title="Meat Lover" cornerStyle="medium">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilJ-Zq-0iv">
-                                <rect key="frame" x="225" y="287" width="130" height="60"/>
+                                <rect key="frame" x="204" y="317" width="163" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Low Carb">
+                                <buttonConfiguration key="configuration" style="filled" title="Low Carb" cornerStyle="medium">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rZo-pv-eqT">
-                                <rect key="frame" x="35" y="379" width="130" height="60"/>
+                                <rect key="frame" x="24" y="393" width="163" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Low Calories">
+                                <buttonConfiguration key="configuration" style="filled" title="Low Calories" cornerStyle="medium">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.20399999618530273" green="0.50199997425079346" blue="0.18000000715255737" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ptq-xJ-g4D">
-                                <rect key="frame" x="225" y="379" width="130" height="60"/>
+                                <rect key="frame" x="204" y="393" width="163" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Vegan">
+                                <buttonConfiguration key="configuration" style="filled" title="Vegan" cornerStyle="medium">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afm-pg-eyB">
-                                <rect key="frame" x="35" y="471" width="135" height="60"/>
+                                <rect key="frame" x="24" y="471" width="163" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="High Protein">
+                                <buttonConfiguration key="configuration" style="filled" title="High Protein" cornerStyle="medium">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" name="Green"/>
+                                    </backgroundConfiguration>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                </buttonConfiguration>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDU-tT-1DG">
-                                <rect key="frame" x="225" y="471" width="130" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Gluten Free">
-                                    <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please let us know your appetite to help you better! You can change it anytime." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVZ-5m-ubY">
@@ -318,7 +330,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.20392156862745098" green="0.50196078431372548" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Continue">
+                                <buttonConfiguration key="configuration" style="plain" title="Continue" cornerStyle="large">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="22"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
@@ -327,21 +339,44 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Avc-34-jHz">
-                                <rect key="frame" x="35" y="562" width="130" height="60"/>
+                                <rect key="frame" x="24" y="546" width="163" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="Green"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Halal">
+                                <buttonConfiguration key="configuration" style="filled" title="Halal" cornerStyle="medium">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kqw-j6-8Jl">
-                                <rect key="frame" x="225" y="562" width="130" height="60"/>
+                                <rect key="frame" x="204" y="546" width="163" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.20399999618530273" green="0.50199997425079346" blue="0.18000000715255737" alpha="0.16334502551020408" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Up for everything" cornerStyle="medium" titleAlignment="trailing">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDU-tT-1DG">
+                                <rect key="frame" x="204" y="471" width="163" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Up for everything">
+                                <buttonConfiguration key="configuration" style="filled" title="Gluten Free" cornerStyle="medium">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                             </button>
                         </subviews>
@@ -617,23 +652,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Jg-MC-Pn2">
-                                <rect key="frame" x="50" y="398" width="131" height="56"/>
+                                <rect key="frame" x="25" y="398" width="163" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="1">
+                                <buttonConfiguration key="configuration" style="filled" title="1" cornerStyle="medium">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" name="Green"/>
+                                    </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="35"/>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.20399999618530273" green="0.50199997425079346" blue="0.18000000715255737" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJL-lT-2XD">
-                                <rect key="frame" x="219" y="398" width="131" height="56"/>
+                                <rect key="frame" x="214" y="398" width="163" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="2">
+                                <buttonConfiguration key="configuration" style="filled" title="2" cornerStyle="medium">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="35"/>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.20399999618530273" green="0.50199997425079346" blue="0.18000000715255737" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLZ-kq-VO0">
@@ -680,33 +723,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25O-9m-MTa">
-                                <rect key="frame" x="16" y="386" width="97" height="56"/>
+                                <rect key="frame" x="16" y="386" width="110" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="3">
+                                <buttonConfiguration key="configuration" style="filled" title="3" cornerStyle="medium">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" name="Green"/>
+                                    </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="35"/>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.20399999618530273" green="0.50199997425079346" blue="0.18000000715255737" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eui-4L-eeM">
-                                <rect key="frame" x="148" y="386" width="97" height="56"/>
+                                <rect key="frame" x="145" y="386" width="106" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="4">
+                                <buttonConfiguration key="configuration" style="filled" title="4" cornerStyle="medium">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" name="Green"/>
+                                    </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="35"/>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.20399999618530273" green="0.50199997425079346" blue="0.18000000715255737" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ar-t2-uaO">
-                                <rect key="frame" x="280" y="386" width="97" height="56"/>
+                                <rect key="frame" x="267" y="386" width="110" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="5">
+                                <buttonConfiguration key="configuration" style="filled" title="5" cornerStyle="medium">
+                                    <backgroundConfiguration key="background" strokeWidth="2">
+                                        <color key="strokeColor" red="0.21960783" green="0.50196081400000003" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="35"/>
                                     <color key="baseForegroundColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="baseBackgroundColor" red="0.20399999618530273" green="0.50199997425079346" blue="0.18000000715255737" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8EE-l3-qK5">
@@ -946,6 +1001,9 @@ Please come again later:)</string>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="house" catalog="system" width="128" height="104"/>
         <image name="houseImage" width="393" height="444"/>
+        <namedColor name="Green">
+            <color red="0.20399999618530273" green="0.50199997425079346" blue="0.18000000715255737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
