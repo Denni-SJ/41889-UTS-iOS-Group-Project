@@ -19,7 +19,7 @@ class menuViewController: UIViewController {
     @IBOutlet weak var menuStack3: UIStackView!
     var meals: [Meal] = []
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+    var account:Account!
     
     override func viewDidLoad() {
         super.viewDidLoad()
