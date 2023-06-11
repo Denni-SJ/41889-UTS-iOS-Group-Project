@@ -495,6 +495,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="96" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="house" catalog="system" title=""/>
+                                                <connections>
+                                                    <segue destination="eod-50-LOX" kind="show" id="Riy-Mq-Qrm"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EaX-Id-EUC">
                                                 <rect key="frame" x="0.0" y="34.333333333333336" width="96" height="20.333333333333336"/>
@@ -932,7 +935,7 @@ Please come again later:)</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WC3-qJ-Vg5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10213" y="810"/>
+            <point key="canvasLocation" x="10212.977099236641" y="809.85915492957747"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.20392158630000001" green="0.5" blue="0.18039217590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
