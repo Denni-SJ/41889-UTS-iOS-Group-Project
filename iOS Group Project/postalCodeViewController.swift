@@ -37,21 +37,42 @@ class postalCodeViewController: UIViewController {
             return false
         }
     }
-
-    @IBAction func submitButtonTapped(_ sender: UIButton) {
-        if(isValid(text: postalCodeTextField.text!)) {
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "signUpViewController") as! signUpViewController
-            self.navigationController?.pushViewController(vc, animated: true)
-
+    func isDeliveryAvailable(text: String) -> Bool {
+        let range = NSRange(location: 0, length: postalCodeTextField.text!.count)
+        let basicRegex = try! NSRegularExpression(pattern: "^2[0-5][0-9][0-9]$")
+        guard !text.isEmpty else {
+            return false
+        }
+        if (basicRegex.firstMatch(in: text, range: range) != nil) {
+            return true
         }
         else {
-            let alertController = UIAlertController(title: "Error", message: "Please fill in a 4 digit post code", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(alertController, animated: true, completion: nil)
-            postalCodeTextField.text = ""
+            return false
         }
     }
-}
+    
+    @IBAction func submitButtonTapped(_ sender: UIButton) {
+        let postalCode = postalCodeTextField.text!
+        
+        if(isValid(text: postalCode)) {
+            if(isDeliveryAvailable(text: postalCode)){
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "signUpViewController") as! signUpViewController
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else {
+                let alertController = UIAlertController(title: "Error", message: "Apologies, we don't delivery to your area", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alertController, animated: true, completion: nil)
+                postalCodeTextField.text = ""
+            }
+            }else {
+                let alertController = UIAlertController(title: "Error", message: "Please fill in a 4 digit post code", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alertController, animated: true, completion: nil)
+                postalCodeTextField.text = ""
+            }
+        }
+    }
 
 extension NSRegularExpression {
     convenience init(_ pattern: String) {
