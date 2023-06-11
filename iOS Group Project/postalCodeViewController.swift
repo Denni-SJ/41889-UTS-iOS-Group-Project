@@ -60,7 +60,7 @@ class postalCodeViewController: UIViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             else {
-                let alertController = UIAlertController(title: "Error", message: "Apologies, we don't delivery to your area", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Error", message: "Apologies, we don't deliver to your area", preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 present(alertController, animated: true, completion: nil)
                 postalCodeTextField.text = ""
