@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import CoreData
-
+// In-App Advertisement
 class adViewController: UIViewController {
 
     @IBOutlet weak var appetiteButton: UIButton!

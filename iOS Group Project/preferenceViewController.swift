@@ -47,12 +47,12 @@ class preferenceViewController: UIViewController {
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
     }
-
+// buttons in preferenceViewController
     func buttonSetUp() {
         let buttonsArray = [meatLover, lowCarb, lowCalories, vegan, highProtein, asian, halal, upForEverything].compactMap { $0 }
         borderOfButtons(buttons: buttonsArray)
     }
-
+// button style
     func borderOfButtons(buttons: [UIButton]) {
         for button in buttons {
             button.layer.borderWidth = 2.0
@@ -62,7 +62,7 @@ class preferenceViewController: UIViewController {
         }
     }
     
-    
+    // When the button is pressed, the color changes
     @objc func buttonPressed(_ sender: UIButton) {
         if !selectFlag {
             sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0)
@@ -524,7 +524,7 @@ class preferenceViewController: UIViewController {
         }
         
     }
-    
+    // Navigate user to the next screen
     @IBAction func continueButtonPressed(_ sender: UIButton) {
         if selectFlag {
                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "portionViewController") as! portionViewController

@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+// second loading screen of the app
 class welcomeViewController: UIViewController {
     
     var remainingTime = 2
@@ -20,7 +20,7 @@ class welcomeViewController: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){
             timer in self.countDown()
         }
-    }
+    }// Proceed to the next slides(postalCodeViewController) after 2 sec
     @objc func countDown() {
         remainingTime -= 1;
         

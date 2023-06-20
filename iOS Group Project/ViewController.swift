@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
-class ViewController: UIViewController {
+// Loading screen of the app
+class viewController: UIViewController {
     var remainingTime = 2
     var timer = Timer()
     var trigger = true
@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true){
             timer in self.countDown()
         }
-    }
+    }// Proceed to the next screen(welcomeViewController) after 2 sec
     @objc func countDown() {
         remainingTime -= 1;
         

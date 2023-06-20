@@ -7,7 +7,7 @@
 
 import Foundation
 import UIKit
-
+// Notification storage(to be developed in the future)
 class notificationViewController: UIViewController {
     
     override func viewDidLoad() {

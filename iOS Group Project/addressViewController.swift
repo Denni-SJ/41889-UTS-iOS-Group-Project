@@ -42,7 +42,7 @@ class addressViewController: UIViewController {
 //        print(account)
         greenBorder(to : [firstNameText, lastNameText, addressLine1Text, addressLine2Text, cityText, postalCodeText, phoneNumberText, deliveryInstructionsText])
     }
-    
+    // Check whether user did input all the textfield
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         if self.firstNameText.text == "" {
             checkEmpty = true
@@ -105,7 +105,7 @@ class addressViewController: UIViewController {
             present(alertController, animated: true, completion: nil)
         }
     }
-    
+    // textfield style
     private func greenBorder(to textFields: [UITextField]) {
         let greenBorderColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0).cgColor
         let borderWidth: CGFloat = 2.0

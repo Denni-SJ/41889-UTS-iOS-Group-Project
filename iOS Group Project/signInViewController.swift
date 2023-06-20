@@ -32,7 +32,7 @@ class signInViewController: UIViewController {
         continueButton.layer.masksToBounds = true
     }
         
-    
+    // Navigate user to the next screen
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else {
@@ -66,7 +66,7 @@ class signInViewController: UIViewController {
         }
     }
     
-    
+    // Toggle is connected to this code snippet when the toggle is on, the id is stored so user doesn't have to input again
     @IBAction func rememberMeSwitchChanged(_ switchState: UISwitch) {
         if switchState.isOn {
             guard let email = emailTextField.text,

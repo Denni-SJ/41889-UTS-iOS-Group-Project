@@ -34,12 +34,12 @@ class portionViewController: UIViewController {
         continueButton.layer.cornerRadius = 10
         continueButton.layer.masksToBounds = true
     }
-    
+    // button set up
     func buttonSetUp() {
         let buttonsArray = [oneButton, twoButton].compactMap { $0 }
         borderOfButtons(buttons: buttonsArray)
     }
-    
+    // button style
     func borderOfButtons(buttons: [UIButton]) {
         for button in buttons {
             button.layer.borderWidth = 2.0
@@ -48,7 +48,7 @@ class portionViewController: UIViewController {
             button.layer.masksToBounds = true
         }
     }
-    
+    // when the button is pressed, color changes
     @objc func buttonPressed(_ sender: UIButton) {
         if !selectFlag {
             sender.backgroundColor = UIColor(red: 52/255, green: 128/255, blue: 46/255, alpha: 1.0)
@@ -61,7 +61,7 @@ class portionViewController: UIViewController {
             selectFlag = false
         }
     }
-    
+    // Navigate user to the next screen
     @IBAction func continueButtonPressed(_ sender: UIButton) {
         if selectFlag {
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "recipeViewController") as! recipeViewController
